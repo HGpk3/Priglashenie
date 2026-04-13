@@ -1,0 +1,13 @@
+.codex
+node_modules
+dist
+build
+.next
+.cache
+.parcel-cache
+coverage
+.DS_Store
+Thumbs.db
+.env
+.env.*
+!.env.example
