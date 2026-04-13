@@ -1,8 +1,25 @@
 :root {
   color-scheme: dark;
-  --background: #09070a;
+  --background: #210208;
   --foreground: #f6f1ef;
   --muted: #b8a9ad;
+  --blush: #DBB7B7;
+  --white: #FFFFFF;
+  --black: #000000;
+  --emerald: #0F5235;
+  --graphite: #3A3432;
+  --lavender: #B8A7B6;
+  --steel-blue: #A7B2C3;
+  --olive: #6A6B2E;
+  --dusty-rose: #C38C93;
+  --powder: #E7B8B2;
+  --burgundy: #6A1F2B;
+  --navy: #1F2E5F;
+  --chocolate: #5A3A2A;
+  /* Replace with exact brand fonts from Figma when font files are available in the project. */
+  --font-script: "Snell Roundhand", "Apple Chancery", "URW Chancery L", cursive;
+  --font-serif: "Cormorant Garamond", "Baskerville", "Times New Roman", serif;
+  --font-sans: "Helvetica Neue", "Avenir Next", "Segoe UI", Arial, sans-serif;
 }
 
 * {
@@ -17,11 +34,18 @@ body {
   margin: 0;
   min-width: 320px;
   background:
-    radial-gradient(circle at top right, rgba(154, 22, 54, 0.28), transparent 24%),
-    radial-gradient(circle at 15% 15%, rgba(241, 236, 233, 0.12), transparent 20%),
-    linear-gradient(180deg, #09070a 0%, #12080d 46%, #09070a 100%);
+    radial-gradient(circle at top right, rgba(106, 31, 43, 0.3), transparent 24%),
+    radial-gradient(circle at 15% 15%, rgba(231, 184, 178, 0.1), transparent 20%),
+    linear-gradient(180deg, #210208 0%, #170208 44%, #210208 100%);
   color: var(--foreground);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(190, 53, 95, 0.35);
 }
 
 a {
