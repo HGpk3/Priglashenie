@@ -1,0 +1,37 @@
+:root {
+  color-scheme: dark;
+  --background: #09070a;
+  --foreground: #f6f1ef;
+  --muted: #b8a9ad;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(circle at top right, rgba(154, 22, 54, 0.28), transparent 24%),
+    radial-gradient(circle at 15% 15%, rgba(241, 236, 233, 0.12), transparent 20%),
+    linear-gradient(180deg, #09070a 0%, #12080d 46%, #09070a 100%);
+  color: var(--foreground);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
