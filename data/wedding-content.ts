@@ -1,6 +1,9 @@
 import type { StaticImageData } from "next/image";
 import { designTokens } from "@/data/design-tokens";
-import heroPhoto from "@/design/extracted/obj-163_2332x3498.jpg";
+import maleLookBlack from "@/design/extracted/obj-023_720x1280.jpg";
+import maleLookEmerald from "@/design/extracted/obj-027_1028x1280.jpg";
+import maleLookChocolate from "@/design/extracted/obj-031_702x1200.jpg";
+import maleLookBurgundy from "@/design/extracted/obj-019_720x1280.jpg";
 import roseFrame from "@/design/extracted/obj-067_1200x1200.jpg";
 import glitterTexture from "@/design/extracted/obj-143_1280x853.jpg";
 import ribbon from "@/design/extracted/obj-135_830x1280.jpg";
@@ -23,70 +26,73 @@ export type OutfitLook = {
 };
 
 export const weddingAssets = {
-  heroPhoto,
   roseFrame,
   glitterTexture,
   ribbon,
   butterfly,
   fingerprintHeart,
-  cocktail
+  cocktail,
+  figmaHeroUrl: "https://www.figma.com/api/mcp/asset/71b89e53-ef69-4092-9361-80e0766621c3",
+  figmaClosingUrl: "https://www.figma.com/api/mcp/asset/f35cb610-abe3-4cc7-b729-c653e5e13413"
 } as const;
 
 export const weddingContent = {
   couple: {
-    names: "Имя и Имя",
-    monogram: "ИИ"
+    groom: "ДАНИЛ",
+    bride: "ЭЛЕНА",
+    initials: ["Д", "Э"]
   },
   event: {
     dateIso: "2026-08-13T15:00:00+03:00",
     dateLabel: "13.08.2026",
     dateFull: "13 августа 2026",
     venue: "Four Seasons Lion Palace",
-    address: "Адрес и финальная запись площадки будут подставлены после подтверждения."
+    address: "Вознесенский, 1"
   },
   hero: {
-    eyebrow: "Wedding day",
-    tagline: "Лето 2026. Санкт-Петербург.",
-    lead:
-      "Dark romantic editorial invitation с крупной фотографией, драматичной типографикой и мягкими декоративными акцентами вместо шаблонной свадебной эстетики.",
-    note: "Мы будем счастливы разделить этот день вместе с вами."
+    day: "13",
+    month: "августа",
+    year: "2026"
   },
   invitation: {
-    title: "Приглашаем вас стать частью самого важного дня в нашей жизни.",
+    title: "ДОРОГИЕ",
+    scriptLine: "родные и близкие!",
     body: [
-      "Мы мечтаем о тёплом, красивом и очень личном празднике, наполненном светом, музыкой, смехом и любимыми людьми рядом.",
-      "Будем счастливы, если именно вы разделите с нами этот день, его волнение, нежность и радость."
+      "Мы хотим, чтобы в этот особенный и самый важный день, вы были рядом с нами и стали свидетелями рождения новой семьи.",
+      "С радостью и трепетом приглашаем вас на нашу свадьбу!"
     ],
-    asideTitle: "О событии",
-    asideText:
-      "Вся страница уже строится mobile-first и держится на семантических блоках: invitation, timeline, dress code, galleries, RSVP, details и countdown."
+    meta: [
+      { label: "дата свадьбы:", value: "13.08.2026" },
+      { label: "место проведения:", value: "Вознесенский, 1\nОтель Four Seasons Lion Palace" }
+    ]
   },
   timeline: [
     {
       time: "14:45",
-      title: "Сбор гостей",
-      description: "Предварительно это сбор гостей у Петроградского ЗАГСа. Точную формулировку можно ещё перепроверить по финальному макету."
+      title: "сбор гостей у Петроградского ЗАГСа"
     },
     {
       time: "15:00",
-      title: "Торжественная церемония",
-      description: "Ключевой момент дня, который должен считываться с первого взгляда даже на мобильном экране."
+      title: "Торжественная церемония"
     },
     {
       time: "16:00",
-      title: "Трансфер",
-      description: "После церемонии предусмотрен трансфер до места празднования для тех гостей, кому это будет удобно."
+      title: "Трансфер до ресторана"
     },
     {
       time: "17:00",
-      title: "Праздничный вечер",
-      description: "Ужин, тосты, музыка и всё, ради чего мы собираем этот день в одну красивую историю."
+      title: "Праздничный банкет"
     }
   ],
   dressCode: {
-    title: "Dress code",
+    title: "ДРЕСС-КОД",
     description:
-      "Будем благодарны, если в своих образах вы поддержите палитру вечера. Важнее не буквальное совпадение оттенка, а общее настроение: глубокие, мягкие и элегантные тона.",
+      "Мы долго готовились, будет здорово, если своими нарядами вы поддержите палитру нашей свадьбы!",
+    warning:
+      "Милые дамы, просим вас не надевать белый и похожие оттенки, ведь, на свадьбе в белом только невеста!",
+    looksTitle: "Примеры образов:",
+    femaleTitle: "Женские",
+    maleTitle: "Мужские",
     palette: [
       { key: "emerald", label: "Тёмный изумруд", hex: designTokens.colors.emerald },
       { key: "graphite", label: "Тёплый графит", hex: designTokens.colors.graphite },
@@ -103,62 +109,64 @@ export const weddingContent = {
     ]
   },
   outfitGalleries: {
-    title: "Outfit galleries",
-    description:
-      "Референсы из макета собраны как отдельная секция, чтобы dress code ощущался частью общей арт-дирекции, а не просто технической памяткой.",
-    looks: [
+    title: "Примеры образов:",
+    femaleLooks: [
       { image: lookLavender, label: "Пыльная лаванда", tone: "lavender" },
       { image: lookBlue, label: "Серо-голубой", tone: "steel-blue" },
-      { image: lookBlack, label: "Чёрный", tone: "black" },
-      { image: lookChocolate, label: "Шоколад", tone: "chocolate" },
+      { image: lookPowder, label: "Пудра", tone: "powder" },
+      { image: lookOlive, label: "Оливковый", tone: "olive" },
       { image: lookWine, label: "Бордовый", tone: "burgundy" },
       { image: lookSilver, label: "Серебро", tone: "blush" },
-      { image: lookOlive, label: "Глубокий оливковый", tone: "olive" },
-      { image: lookPowder, label: "Пудра", tone: "powder" }
+      { image: lookBlack, label: "Чёрный", tone: "black" },
+      { image: lookChocolate, label: "Шоколад", tone: "chocolate" }
+    ] as OutfitLook[],
+    maleLooks: [
+      { image: maleLookEmerald, label: "Изумрудный костюм", tone: "emerald" },
+      { image: maleLookBlack, label: "Чёрный костюм", tone: "black" },
+      { image: maleLookChocolate, label: "Шоколадный костюм", tone: "chocolate" },
+      { image: maleLookBurgundy, label: "Бордовый образ", tone: "burgundy" }
     ] as OutfitLook[]
   },
   rsvp: {
-    title: "RSVP",
-    description:
-      "Пожалуйста, подтвердите ваше присутствие и заполните короткую анкету. Это поможет нам позаботиться о каждом госте и сделать вечер комфортным для всех.",
-    deadline: "Будем благодарны за ответ заранее. Точную дату дедлайна можно добавить после согласования.",
-    buttonLabel: "Отправить ответ",
-    questions: [
-      "Ваши имя и фамилия",
-      "Планируете ли вы присутствовать?",
-      "Какой напиток вам ближе?",
-      "Что предпочитаете: рыбу, мясо или любой вариант?",
-      "Есть ли аллергии?",
-      "Нужен ли вам трансфер?"
-    ],
+    title: "АНКЕТА",
+    lead: "Просим подтвердить свое присутствие",
+    deadline: {
+      prefix: "ДО",
+      day: "1",
+      month: "ИЮЛЯ",
+      year: "2026"
+    },
+    nameLabel: "Ваши имя и фамилия:",
+    attendanceLabel: "Планируете ли вы присутствовать?",
+    alcoholLabel: "Алкогольные предпочтения:",
+    mealLabel: "Предпочитаете рыбу или мясо?",
+    allergyLabel: "Есть ли у вас аллергия на что-то?",
+    transferLabel: "Требуется ли трансфер до ресторана?",
+    buttonLabel: "Отправить",
     attendanceOptions: ["Да", "Нет"],
-    alcoholPreferences: ["Игристое", "Белое вино", "Красное вино", "Коктейли", "Без алкоголя"],
-    mealOptions: ["Рыба", "Мясо", "Любой вариант"],
+    alcoholPreferences: [
+      "Шампанское",
+      "Красное вино сладкое",
+      "Красное вино сухое",
+      "Белое вино сладкое",
+      "Белое вино сухое",
+      "Не буду пить"
+    ],
+    mealOptions: ["Рыба", "Мясо", "Без разницы"],
     transferOptions: ["Да", "Нет"]
   },
   details: {
-    title: "Details",
+    title: "ДЕТАЛИ",
     items: [
-      {
-        title: "Подарки",
-        text: "Если вы захотите порадовать нас подарком, нам будет особенно приятно получить вклад в наши будущие совместные мечты."
-      },
-      {
-        title: "Цветы",
-        text: "Мы будем благодарны, если вместо цветов вы выберете что-то, что сохранит воспоминание об этом дне дольше."
-      },
-      {
-        title: "Контакты",
-        text: "Если у вас появятся вопросы по локации, дресс-коду или логистике, можно будет связаться с нами или с человеком, который будет помогать гостям."
-      }
+      "Мы очень ценим вашу заботу и внимание, поэтому в качестве подарка были бы рады получить деньги",
+      "Мы просим вас не дарить цветы, но будем рады любой бутылке алкоголя для коллекции",
+      "В самом зале просим вас отказаться от курения, для этого у нас будет отдельное место"
     ],
-    contactCardTitle: "На связи",
-    contactCardText:
-      "Сейчас здесь оставлено место под реальные контакты пары или координатора. Блок уже встроен в композицию и не требует отдельной переработки."
+    extraLine: "Нам надо делать ремонт)))",
+    closingLine: "Благодарим за понимание!"
   },
   countdown: {
-    title: "Countdown",
-    description:
-      "До дня свадьбы осталось совсем немного. Счётчик ниже обновляется в реальном времени и завершает страницу мягким, эмоциональным финалом."
+    title: "ДО ВСТРЕЧИ!",
+    description: ""
   }
 } as const;

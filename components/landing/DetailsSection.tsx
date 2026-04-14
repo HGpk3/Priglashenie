@@ -1,35 +1,30 @@
-import Image from "next/image";
 import styles from "./LandingPage.module.css";
 import { designTokens } from "@/data/design-tokens";
-import { weddingAssets, weddingContent } from "@/data/wedding-content";
-import { SectionHeading } from "./SectionHeading";
+import { weddingContent } from "@/data/wedding-content";
 
 export function DetailsSection() {
   return (
     <section className={styles.section} id={designTokens.sectionIds.details}>
       <div className={styles.detailsGrid}>
         <div className={`${styles.card} ${styles.detailsCard}`}>
-          <SectionHeading kicker="Details" title={weddingContent.details.title} />
+          <div className={styles.sectionHeader}>
+            <h2 className={styles.sectionTitle}>{weddingContent.details.title}</h2>
+          </div>
           <div className={styles.detailsList}>
-            {weddingContent.details.items.map((item) => (
-              <article className={`${styles.card} ${styles.detailItem}`} key={item.title}>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
+            {weddingContent.details.items.map((item, index) => (
+              <article className={styles.detailItem} key={item}>
+                <div className={styles.detailNumber}>{String(index + 1).padStart(2, "0")}</div>
+                <div className={styles.detailTextWrap}>
+                  <p>{item}</p>
+                  {index === 0 ? <p className={styles.detailExtraLine}>{weddingContent.details.extraLine}</p> : null}
+                  {index === weddingContent.details.items.length - 1 ? (
+                    <p className={styles.detailClosingLine}>{weddingContent.details.closingLine}</p>
+                  ) : null}
+                </div>
               </article>
             ))}
           </div>
         </div>
-
-        <aside className={`${styles.card} ${styles.detailsAside}`}>
-          <Image src={weddingAssets.fingerprintHeart} alt="" className={styles.detailsHeart} />
-          <Image src={weddingAssets.cocktail} alt="" className={styles.detailsCocktail} />
-
-          <div className={styles.detailsAsideInner}>
-            <span className={styles.kicker}>Contacts</span>
-            <h3 className={styles.detailsAsideTitle}>{weddingContent.details.contactCardTitle}</h3>
-            <p className={styles.detailsAsideText}>{weddingContent.details.contactCardText}</p>
-          </div>
-        </aside>
       </div>
     </section>
   );

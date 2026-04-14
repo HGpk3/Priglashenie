@@ -15,26 +15,23 @@ export function HeroSection() {
 
       <div className={styles.heroGrid}>
         <div className={styles.heroCopy}>
-          <span className={styles.kicker}>{weddingContent.hero.eyebrow}</span>
+          <div className={styles.heroDateStack}>
+            <div className={styles.heroDay}>{weddingContent.hero.day}</div>
+            <div className={styles.heroMonth}>{weddingContent.hero.month}</div>
+            <div className={styles.heroYear}>{weddingContent.hero.year}</div>
+          </div>
           <span aria-hidden="true" className={styles.heroMonogram}>
-            {weddingContent.couple.monogram}
+            {weddingContent.couple.initials[0]}
           </span>
-          <p className={styles.heroTagline}>{weddingContent.hero.tagline}</p>
-          <h1 className={styles.heroNames}>{weddingContent.couple.names}</h1>
-          <div className={styles.heroDate}>{weddingContent.event.dateLabel}</div>
-          <p className={styles.heroLead}>{weddingContent.hero.lead}</p>
-          <div className={styles.heroNote}>{weddingContent.hero.note}</div>
+          <span aria-hidden="true" className={styles.heroMonogram}>
+            {weddingContent.couple.initials[1]}
+          </span>
+          <div className={`${styles.heroNames} ${styles.heroNamesLeft}`}>{weddingContent.couple.groom}</div>
+          <div className={`${styles.heroNames} ${styles.heroNamesRight}`}>{weddingContent.couple.bride}</div>
         </div>
 
         <div className={styles.heroPoster}>
-          <Image
-            src={weddingAssets.heroPhoto}
-            alt="Фотография пары"
-            fill
-            priority
-            className={styles.heroPosterImage}
-            sizes="(max-width: 1080px) 100vw, 46vw"
-          />
+          <img alt="Фотография пары" className={styles.heroPosterImage} src={weddingAssets.figmaHeroUrl} />
         </div>
       </div>
     </section>

@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import type { Metadata } from "next";
+import { aboreto, ballet, cormorant, greatVibes } from "./fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -14,7 +15,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body>{children}</body>
+      <body className={`${cormorant.variable} ${greatVibes.variable} ${ballet.variable} ${aboreto.variable}`}>
+        {children}
+      </body>
     </html>
   );
 }

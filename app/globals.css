@@ -16,10 +16,12 @@
   --burgundy: #6A1F2B;
   --navy: #1F2E5F;
   --chocolate: #5A3A2A;
-  /* Replace with exact brand fonts from Figma when font files are available in the project. */
-  --font-script: "Snell Roundhand", "Apple Chancery", "URW Chancery L", cursive;
-  --font-serif: "Cormorant Garamond", "Baskerville", "Times New Roman", serif;
   --font-sans: "Helvetica Neue", "Avenir Next", "Segoe UI", Arial, sans-serif;
+  /* If these fonts are installed locally, the browser will use them before the web fallbacks. */
+  --font-serif-stack: var(--font-serif), "Cormorant Garamond", "Baskerville", "Times New Roman", serif;
+  --font-script-stack: "Good Vibes Pro", var(--font-script), "Snell Roundhand", "Apple Chancery", "URW Chancery L", cursive;
+  --font-decorative-stack: "Adine Kirnberg", var(--font-decorative), "Zapfino", "Snell Roundhand", cursive;
+  --font-accent-stack: var(--font-display-accent), "Aboreto", "Cormorant Garamond", serif;
 }
 
 * {
