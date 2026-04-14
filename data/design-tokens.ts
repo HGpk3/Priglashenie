@@ -28,8 +28,7 @@ export const designTokens = {
   fontFallbacks: {
     // Replace with brand script font from Figma when it becomes available in the repo.
     script: '"Snell Roundhand", "Apple Chancery", "URW Chancery L", cursive',
-    // Replace with exact serif font from Figma when exported or licensed.
     serif: '"Cormorant Garamond", "Baskerville", "Times New Roman", serif',
-    sans: '"Helvetica Neue", "Avenir Next", "Segoe UI", Arial, sans-serif'
+    sans: '"Cormorant Garamond", "Baskerville", "Times New Roman", serif'
   }
 } as const;
