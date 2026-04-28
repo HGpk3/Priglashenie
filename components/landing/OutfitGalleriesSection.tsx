@@ -5,15 +5,15 @@ import { weddingAssets, weddingContent } from "@/data/wedding-content";
 
 export function OutfitGalleriesSection() {
   return (
-    <section className={styles.section} id={designTokens.sectionIds.galleries}>
+    <section className={`${styles.section} ${styles.gallerySection}`} id={designTokens.sectionIds.galleries}>
       <div className={`${styles.card} ${styles.galleryCard}`}>
         <Image src={weddingAssets.ribbon} alt="" className={styles.galleryRibbon} />
         <div className={styles.galleryTitle}>{weddingContent.dressCode.looksTitle}</div>
         <div className={styles.gallerySubheading}>{weddingContent.dressCode.femaleTitle}</div>
 
-        <div className={styles.galleryGrid}>
+        <div className={`${styles.galleryGrid} ${styles.femaleGallery}`}>
           {weddingContent.outfitGalleries.femaleLooks.map((look) => (
-            <figure className={styles.lookCard} key={look.label}>
+            <figure className={styles.lookCard} data-tone={look.tone} key={look.label}>
               <div className={styles.lookImageWrap}>
                 <Image
                   src={look.image}
@@ -29,9 +29,9 @@ export function OutfitGalleriesSection() {
 
         <div className={styles.gallerySubheading}>{weddingContent.dressCode.maleTitle}</div>
 
-        <div className={styles.galleryGrid}>
+        <div className={`${styles.galleryGrid} ${styles.maleGallery}`}>
           {weddingContent.outfitGalleries.maleLooks.map((look) => (
-            <figure className={styles.lookCard} key={look.label}>
+            <figure className={styles.lookCard} data-tone={look.tone} key={look.label}>
               <div className={styles.lookImageWrap}>
                 <Image
                   src={look.image}

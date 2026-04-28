@@ -1,23 +1,27 @@
 import type { StaticImageData } from "next/image";
 import { designTokens } from "@/data/design-tokens";
-import maleLookBlack from "@/design/extracted/obj-023_720x1280.jpg";
-import maleLookEmerald from "@/design/extracted/obj-027_1028x1280.jpg";
-import maleLookChocolate from "@/design/extracted/obj-031_702x1200.jpg";
-import maleLookBurgundy from "@/design/extracted/obj-019_720x1280.jpg";
+import maleLookBlack from "@/design/cutouts/obj-063_720x1280-cutout.png";
+import maleLookBrown from "@/design/cutouts/obj-039_853x1280-cutout.png";
+import maleLookGraphite from "@/design/cutouts/obj-043_886x1280-cutout.png";
+import maleLookOlive from "@/design/cutouts/obj-051_785x1280-cutout.png";
+import maleLookNavy from "@/design/cutouts/obj-055_877x1280-cutout.png";
+import maleLookTuxedo from "@/design/cutouts/obj-035_864x1184-cutout.png";
 import roseFrame from "@/design/extracted/obj-067_1200x1200.jpg";
 import glitterTexture from "@/design/extracted/obj-143_1280x853.jpg";
-import ribbon from "@/design/extracted/obj-135_830x1280.jpg";
+import ribbon from "@/design/cutouts/obj-135_830x1280-cutout.png";
 import butterfly from "@/design/extracted/obj-139_712x1266.jpg";
 import fingerprintHeart from "@/design/extracted/obj-127_853x1280.jpg";
 import cocktail from "@/design/extracted/obj-119_736x736.jpg";
-import lookLavender from "@/design/extracted/obj-071_914x1280.jpg";
-import lookBlue from "@/design/extracted/obj-087_914x1280.jpg";
-import lookBlack from "@/design/extracted/obj-095_853x1280.jpg";
-import lookChocolate from "@/design/extracted/obj-099_852x1280.jpg";
-import lookWine from "@/design/extracted/obj-103_914x1280.jpg";
-import lookSilver from "@/design/extracted/obj-123_674x1201.jpg";
-import lookOlive from "@/design/extracted/obj-075_675x1200.jpg";
-import lookPowder from "@/design/extracted/obj-079_961x1280.jpg";
+import lookBlack from "@/design/cutouts/obj-095_853x1280-cutout.png";
+import lookChocolate from "@/design/cutouts/obj-099_852x1280-cutout.png";
+import lookWine from "@/design/cutouts/obj-103_914x1280-cutout.png";
+import lookBurgundy from "@/design/cutouts/obj-107_697x800-cutout.png";
+import lookEmerald from "@/design/cutouts/obj-115_854x1280-cutout.png";
+import lookNavy from "@/design/cutouts/obj-083_556x1080-cutout.png";
+import lookSilver from "@/design/cutouts/obj-123_674x1201-cutout.png";
+import lookSilverGown from "@/design/cutouts/obj-111_960x1280-cutout.png";
+import lookOlive from "@/design/cutouts/obj-075_675x1200-cutout.png";
+import lookPowder from "@/design/cutouts/obj-079_961x1280-cutout.png";
 
 export type OutfitLook = {
   image: StaticImageData;
@@ -111,20 +115,24 @@ export const weddingContent = {
   outfitGalleries: {
     title: "Примеры образов:",
     femaleLooks: [
-      { image: lookLavender, label: "Пыльная лаванда", tone: "lavender" },
-      { image: lookBlue, label: "Серо-голубой", tone: "steel-blue" },
-      { image: lookPowder, label: "Пудра", tone: "powder" },
-      { image: lookOlive, label: "Оливковый", tone: "olive" },
-      { image: lookWine, label: "Бордовый", tone: "burgundy" },
-      { image: lookSilver, label: "Серебро", tone: "blush" },
       { image: lookBlack, label: "Чёрный", tone: "black" },
-      { image: lookChocolate, label: "Шоколад", tone: "chocolate" }
+      { image: lookChocolate, label: "Шоколад", tone: "chocolate" },
+      { image: lookWine, label: "Бордовый", tone: "burgundy" },
+      { image: lookOlive, label: "Оливковый", tone: "olive" },
+      { image: lookPowder, label: "Пудра", tone: "powder" },
+      { image: lookNavy, label: "Тёмно-синий", tone: "navy" },
+      { image: lookSilver, label: "Серебро", tone: "blush" },
+      { image: lookEmerald, label: "Изумруд", tone: "emerald" },
+      { image: lookBurgundy, label: "Винный", tone: "burgundy" },
+      { image: lookSilverGown, label: "Серебристый", tone: "blush" }
     ] as OutfitLook[],
     maleLooks: [
-      { image: maleLookEmerald, label: "Изумрудный костюм", tone: "emerald" },
-      { image: maleLookBlack, label: "Чёрный костюм", tone: "black" },
-      { image: maleLookChocolate, label: "Шоколадный костюм", tone: "chocolate" },
-      { image: maleLookBurgundy, label: "Бордовый образ", tone: "burgundy" }
+      { image: maleLookBlack, label: "Чёрный смокинг", tone: "black" },
+      { image: maleLookBrown, label: "Коричневый костюм", tone: "chocolate" },
+      { image: maleLookGraphite, label: "Графитовый костюм", tone: "graphite" },
+      { image: maleLookOlive, label: "Оливковый костюм", tone: "olive" },
+      { image: maleLookNavy, label: "Тёмно-синий костюм", tone: "navy" },
+      { image: maleLookTuxedo, label: "Классический смокинг", tone: "black" }
     ] as OutfitLook[]
   },
   rsvp: {

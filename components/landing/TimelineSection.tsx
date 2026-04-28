@@ -13,6 +13,7 @@ export function TimelineSection() {
           <Image src={timelineHeart} alt="" className={styles.timelineHeartBottom} />
 
           <div className={styles.timelineHeader}>
+            <p className={styles.timelineEyebrow}>план дня</p>
             <h2 className={styles.sectionTitle}>ТАЙМИНГ</h2>
           </div>
 

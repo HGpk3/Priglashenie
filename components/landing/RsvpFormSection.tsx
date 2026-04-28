@@ -61,8 +61,8 @@ export function RsvpFormSection() {
     <section className={styles.section} id={designTokens.sectionIds.rsvp}>
       <div className={styles.formCard}>
         <div className={styles.formHero}>
-          <div className={styles.kicker}>RSVP</div>
           <div className={styles.sectionHeader}>
+            <div className={styles.kicker}>RSVP</div>
             <h2 className={styles.sectionTitle}>{weddingContent.rsvp.title}</h2>
             <div className={styles.formLead}>{weddingContent.rsvp.lead}</div>
           </div>
