@@ -8,6 +8,7 @@ import { weddingContent } from "@/data/wedding-content";
 export function RsvpFormSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [feedback, setFeedback] = useState<{ tone: "success" | "error"; text: string } | null>(null);
+  const isSuccess = feedback?.tone === "success";
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -59,7 +60,7 @@ export function RsvpFormSection() {
 
   return (
     <section className={styles.section} id={designTokens.sectionIds.rsvp}>
-      <div className={styles.formCard}>
+      <div className={`${styles.formCard} ${isSuccess ? styles.formCardSuccess : ""}`}>
         <div className={styles.formHero}>
           <div className={styles.sectionHeader}>
             <div className={styles.kicker}>RSVP</div>
@@ -72,6 +73,7 @@ export function RsvpFormSection() {
             <span className={styles.deadlineMonth}>{weddingContent.rsvp.deadline.month}</span>
             <span className={styles.deadlineYear}>{weddingContent.rsvp.deadline.year}</span>
           </div>
+          <p className={styles.formPostcardNote}>Ваш ответ поможет нам красиво собрать вечер и позаботиться о деталях.</p>
         </div>
 
         <form className={styles.formGrid} onSubmit={handleSubmit}>
@@ -176,7 +178,12 @@ export function RsvpFormSection() {
                 {feedback.text}
               </p>
             ) : null}
-            <button className={styles.formButton} disabled={isSubmitting} type="submit">
+            {isSuccess ? <p className={styles.rsvpSignature}>Спасибо</p> : null}
+            <button
+              className={`${styles.formButton} ${isSubmitting ? styles.formButtonBusy : ""}`}
+              disabled={isSubmitting}
+              type="submit"
+            >
               {isSubmitting ? "Отправляем..." : weddingContent.rsvp.buttonLabel}
             </button>
           </div>

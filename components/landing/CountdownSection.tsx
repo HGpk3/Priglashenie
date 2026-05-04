@@ -1,4 +1,5 @@
 import styles from "./LandingPage.module.css";
+import Image from "next/image";
 import { Countdown } from "@/components/Countdown";
 import { designTokens } from "@/data/design-tokens";
 import { weddingAssets, weddingContent } from "@/data/wedding-content";
@@ -14,7 +15,15 @@ export function CountdownSection() {
           </div>
         </div>
 
-        <img alt="Фотография пары" className={styles.countdownImage} src={weddingAssets.figmaClosingUrl} />
+        <div className={styles.countdownImageFrame}>
+          <Image
+            alt="Фотография пары"
+            className={styles.countdownImage}
+            fill
+            sizes="(max-width: 720px) 100vw, 58vw"
+            src={weddingAssets.closingPhoto}
+          />
+        </div>
         <div className={styles.countdownOverlay} />
 
         <Countdown

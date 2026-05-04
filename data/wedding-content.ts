@@ -1,28 +1,35 @@
 import type { StaticImageData } from "next/image";
 import { designTokens } from "@/data/design-tokens";
-import maleLookBlack from "@/design/cutouts/obj-063_720x1280-cutout.png";
-import maleLookBrown from "@/design/cutouts/obj-039_853x1280-cutout.png";
-import maleLookGraphite from "@/design/cutouts/obj-043_886x1280-cutout.png";
-import maleLookOlive from "@/design/cutouts/obj-051_785x1280-cutout.png";
-import maleLookNavy from "@/design/cutouts/obj-055_877x1280-cutout.png";
-import maleLookTuxedo from "@/design/cutouts/obj-035_864x1184-cutout.png";
 import roseFrame from "@/design/extracted/obj-067_1200x1200.jpg";
 import glitterTexture from "@/design/extracted/obj-143_1280x853.jpg";
 import heroPortrait from "@/design/extracted/hero-couple-crop.jpg";
+import closingPhoto from "@/source/photo_5276421358579554336_y 2.png";
 import ribbon from "@/design/cutouts/obj-135_830x1280-cutout.png";
 import butterfly from "@/design/extracted/obj-139_712x1266.jpg";
 import fingerprintHeart from "@/design/extracted/obj-127_853x1280.jpg";
 import cocktail from "@/design/extracted/obj-119_736x736.jpg";
-import lookBlack from "@/design/cutouts/obj-095_853x1280-cutout.png";
-import lookChocolate from "@/design/cutouts/obj-099_852x1280-cutout.png";
-import lookWine from "@/design/cutouts/obj-103_914x1280-cutout.png";
-import lookBurgundy from "@/design/cutouts/obj-107_697x800-cutout.png";
-import lookEmerald from "@/design/cutouts/obj-115_854x1280-cutout.png";
-import lookNavy from "@/design/cutouts/obj-083_556x1080-cutout.png";
-import lookSilver from "@/design/cutouts/obj-123_674x1201-cutout.png";
-import lookSilverGown from "@/design/cutouts/obj-111_960x1280-cutout.png";
-import lookOlive from "@/design/cutouts/obj-075_675x1200-cutout.png";
-import lookPowder from "@/design/cutouts/obj-079_961x1280-cutout.png";
+import femaleLookSilverGown from "@/source/photo_5276421358579554500_y 1.png";
+import femaleLookBurgundyDress from "@/source/photo_5276421358579554501_y 2.png";
+import femaleLookChocolateDress from "@/source/photo_5276421358579554502_y 2.png";
+import femaleLookGraphiteDress from "@/source/photo_5278719209032586635_y 1.png";
+import femaleLookNavyDress from "@/source/photo_5278719209032586642_y 1.png";
+import femaleLookPowderDress from "@/source/photo_5278719209032586644_y 1.png";
+import femaleLookWineTop from "@/source/photo_5278719209032586641_x 1.png";
+import femaleLookEmeraldDress from "@/source/photo_5278719209032586636_y 1.png";
+import femaleLookLavenderDress from "@/source/photo_5278719209032586638_y 1.png";
+import femaleLookSteelDress from "@/source/photo_5278719209032586639_y 1.png";
+import femaleLookOliveSuit from "@/source/photo_5292272429306681598_y 1.png";
+import femaleLookEmeraldSuit from "@/source/photo_5292272429306681603_y 1.png";
+import femaleLookBlackSuit from "@/source/photo_5292272429306681604_y 1.png";
+import femaleLookWineSuit from "@/source/photo_5292272429306681602_y 1.png";
+import maleLookBlackSuit from "@/source/photo_5276421358579554509_y 2.png";
+import maleLookOliveSuit from "@/source/photo_5276421358579554510_y 2.png";
+import maleLookChocolateSuit from "@/source/photo_5276421358579554511_y 2.png";
+import maleLookNavySuit from "@/source/photo_5292272429306681606_y 1.png";
+import maleLookClassicBlack from "@/source/photo_5292272429306681610_y 1.png";
+import maleLookTuxedo from "@/source/photo_5292272429306681607_y 1.png";
+import maleLookGraphiteSuit from "@/source/photo_5292272429306681608_y 1.png";
+import maleLookGreenSuit from "@/source/photo_5292272429306681609_y 1.png";
 
 export type OutfitLook = {
   image: StaticImageData;
@@ -32,6 +39,7 @@ export type OutfitLook = {
 
 export const weddingAssets = {
   heroPortrait,
+  closingPhoto,
   roseFrame,
   glitterTexture,
   ribbon,
@@ -117,24 +125,30 @@ export const weddingContent = {
   outfitGalleries: {
     title: "Примеры образов:",
     femaleLooks: [
-      { image: lookBlack, label: "Чёрный", tone: "black" },
-      { image: lookChocolate, label: "Шоколад", tone: "chocolate" },
-      { image: lookWine, label: "Бордовый", tone: "burgundy" },
-      { image: lookOlive, label: "Оливковый", tone: "olive" },
-      { image: lookPowder, label: "Пудра", tone: "powder" },
-      { image: lookNavy, label: "Тёмно-синий", tone: "navy" },
-      { image: lookSilver, label: "Серебро", tone: "blush" },
-      { image: lookEmerald, label: "Изумруд", tone: "emerald" },
-      { image: lookBurgundy, label: "Винный", tone: "burgundy" },
-      { image: lookSilverGown, label: "Серебристый", tone: "blush" }
+      { image: femaleLookSilverGown, label: "Серебристое платье", tone: "blush" },
+      { image: femaleLookBurgundyDress, label: "Бордовое платье", tone: "burgundy" },
+      { image: femaleLookChocolateDress, label: "Шоколадное платье", tone: "chocolate" },
+      { image: femaleLookGraphiteDress, label: "Графитовое платье", tone: "graphite" },
+      { image: femaleLookNavyDress, label: "Тёмно-синее платье", tone: "navy" },
+      { image: femaleLookPowderDress, label: "Пудровое платье", tone: "powder" },
+      { image: femaleLookWineTop, label: "Винный топ", tone: "burgundy" },
+      { image: femaleLookEmeraldDress, label: "Изумрудное платье", tone: "emerald" },
+      { image: femaleLookLavenderDress, label: "Лавандовое платье", tone: "lavender" },
+      { image: femaleLookSteelDress, label: "Серо-голубое платье", tone: "steel-blue" },
+      { image: femaleLookOliveSuit, label: "Оливковый костюм", tone: "olive" },
+      { image: femaleLookEmeraldSuit, label: "Изумрудный костюм", tone: "emerald" },
+      { image: femaleLookBlackSuit, label: "Чёрный костюм", tone: "black" },
+      { image: femaleLookWineSuit, label: "Винный костюм", tone: "burgundy" }
     ] as OutfitLook[],
     maleLooks: [
-      { image: maleLookBlack, label: "Чёрный смокинг", tone: "black" },
-      { image: maleLookBrown, label: "Коричневый костюм", tone: "chocolate" },
-      { image: maleLookGraphite, label: "Графитовый костюм", tone: "graphite" },
-      { image: maleLookOlive, label: "Оливковый костюм", tone: "olive" },
-      { image: maleLookNavy, label: "Тёмно-синий костюм", tone: "navy" },
-      { image: maleLookTuxedo, label: "Классический смокинг", tone: "black" }
+      { image: maleLookBlackSuit, label: "Чёрный костюм", tone: "black" },
+      { image: maleLookOliveSuit, label: "Оливковый костюм", tone: "olive" },
+      { image: maleLookChocolateSuit, label: "Шоколадный костюм", tone: "chocolate" },
+      { image: maleLookNavySuit, label: "Тёмно-синий костюм", tone: "navy" },
+      { image: maleLookClassicBlack, label: "Классический чёрный костюм", tone: "black" },
+      { image: maleLookTuxedo, label: "Смокинг", tone: "black" },
+      { image: maleLookGraphiteSuit, label: "Графитовый костюм", tone: "graphite" },
+      { image: maleLookGreenSuit, label: "Зелёный костюм", tone: "olive" }
     ] as OutfitLook[]
   },
   rsvp: {

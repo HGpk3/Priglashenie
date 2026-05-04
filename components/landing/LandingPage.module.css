@@ -213,6 +213,74 @@
   }
 }
 
+@keyframes rsvpCardReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(38px) scale(0.985);
+    filter: blur(8px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes rsvpQuestionReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rsvpStampReveal {
+  0% {
+    opacity: 0;
+    transform: rotate(-4deg) scale(0.86);
+    filter: blur(4px);
+  }
+
+  72% {
+    transform: rotate(-2deg) scale(1.04);
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotate(-2deg) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes rsvpButtonSweep {
+  0% {
+    transform: translateX(-120%);
+  }
+
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+@keyframes rsvpSignatureReveal {
+  0% {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0;
+    transform: translateY(8px) rotate(-2deg);
+  }
+
+  100% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+    transform: translateY(0) rotate(-2deg);
+  }
+}
+
 .section {
   position: relative;
   z-index: 1;
@@ -424,8 +492,8 @@
   place-items: center;
   pointer-events: none;
   background:
-    radial-gradient(circle at 50% 44%, rgba(219, 183, 183, 0.12), transparent 28%),
-    linear-gradient(180deg, rgba(8, 0, 3, 0.96), rgba(35, 3, 10, 0.94));
+    radial-gradient(circle at 50% 44%, rgba(235, 199, 195, 0.22), transparent 30%),
+    linear-gradient(180deg, rgba(18, 1, 7, 0.94), rgba(64, 5, 19, 0.91));
   animation: heroPreludeExit 2750ms ease forwards;
 }
 
@@ -1246,23 +1314,31 @@
 
 .formCard {
   position: relative;
+  display: grid;
+  grid-template-columns: minmax(220px, 310px) minmax(0, 1fr);
+  gap: clamp(24px, 3.6vw, 48px);
   overflow: hidden;
-  padding: clamp(44px, 7vw, 82px) clamp(24px, 7vw, 86px);
+  padding: clamp(42px, 6vw, 76px) clamp(24px, 6vw, 74px);
   border: 1px solid rgba(219, 183, 183, 0.12);
   border-radius: 0;
   background:
-    radial-gradient(circle at 18% 0%, rgba(219, 183, 183, 0.12), transparent 24%),
-    radial-gradient(circle at 92% 18%, rgba(106, 31, 43, 0.42), transparent 24%),
-    linear-gradient(180deg, #25030a 0%, #120105 58%, #210208 100%);
+    linear-gradient(90deg, rgba(255, 241, 243, 0.055) 0 1px, transparent 1px 18vw),
+    radial-gradient(circle at 13% 16%, rgba(219, 183, 183, 0.18), transparent 25%),
+    radial-gradient(circle at 92% 18%, rgba(106, 31, 43, 0.34), transparent 24%),
+    linear-gradient(135deg, #26040b 0%, #140106 45%, #22030a 100%);
   color: var(--foreground);
   box-shadow: 0 34px 90px rgba(0, 0, 0, 0.34);
+  isolation: isolate;
+  opacity: 0;
+  animation: rsvpCardReveal 900ms cubic-bezier(0.2, 0.82, 0.2, 1) forwards;
 }
 
 .formCard .sectionTitle {
   color: var(--white);
-  font-size: clamp(4.2rem, 10vw, 9rem);
+  max-width: 100%;
+  font-size: clamp(3.05rem, 5.4vw, 5.35rem);
   font-weight: 500;
-  line-height: 0.78;
+  line-height: 0.86;
   letter-spacing: 0.02em;
 }
 
@@ -1291,28 +1367,55 @@
 .formHero {
   position: relative;
   z-index: 1;
+  align-content: start;
   display: grid;
-  justify-items: center;
-  gap: clamp(22px, 4vw, 38px);
-  text-align: center;
+  justify-items: start;
+  gap: clamp(24px, 4vw, 42px);
+  text-align: left;
+}
+
+.formHero .sectionHeader {
+  justify-items: start;
+  text-align: left;
+}
+
+.formHero .kicker {
+  background: rgba(255, 241, 243, 0.06);
+}
+
+.formPostcardNote {
+  width: min(100%, 280px);
+  margin: 0;
+  color: rgba(255, 241, 243, 0.58);
+  font-family: var(--font-serif-stack);
+  font-size: clamp(1.02rem, 1.8vw, 1.2rem);
+  line-height: 1.28;
 }
 
 .formDeadlineCard {
   display: grid;
-  grid-template-columns: auto auto 1fr auto;
-  align-items: end;
-  gap: clamp(10px, 2vw, 22px);
-  width: min(100%, 640px);
-  padding: 18px 0 16px;
-  border-top: 1px solid rgba(255, 241, 243, 0.22);
-  border-bottom: 1px solid rgba(255, 241, 243, 0.22);
+  grid-template-columns: auto auto;
+  justify-content: start;
+  align-items: center;
+  gap: 8px 14px;
+  width: min(100%, 260px);
+  padding: 18px 20px 16px;
+  border: 1px solid rgba(255, 241, 243, 0.3);
+  color: rgba(255, 241, 243, 0.9);
+  background: rgba(255, 241, 243, 0.045);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 241, 243, 0.06),
+    0 22px 44px rgba(0, 0, 0, 0.24);
+  transform-origin: center;
+  opacity: 0;
+  animation: rsvpStampReveal 800ms ease 420ms forwards;
 }
 
 .formDeadlineLabel {
-  align-self: center;
+  grid-column: 1 / -1;
   color: rgba(255, 241, 243, 0.58);
   font-family: var(--font-serif-stack);
-  font-size: clamp(0.9rem, 1.8vw, 1.08rem);
+  font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -1322,11 +1425,37 @@
   counter-increment: form-question;
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
-  gap: clamp(20px, 4vw, 54px);
-  align-items: center;
-  padding: clamp(22px, 3vw, 34px) 0;
-  border-top: 1px solid rgba(255, 241, 243, 0.13);
+  grid-template-columns: minmax(0, 230px) minmax(0, 1fr);
+  gap: clamp(18px, 2.6vw, 34px);
+  align-items: start;
+  padding: clamp(24px, 3.2vw, 36px) 0;
+  border-top: 1px solid rgba(255, 241, 243, 0.12);
+  opacity: 0;
+  animation: rsvpQuestionReveal 680ms ease forwards;
+}
+
+.formPanel:nth-child(1) {
+  animation-delay: 220ms;
+}
+
+.formPanel:nth-child(2) {
+  animation-delay: 320ms;
+}
+
+.formPanel:nth-child(3) {
+  animation-delay: 420ms;
+}
+
+.formPanel:nth-child(4) {
+  animation-delay: 520ms;
+}
+
+.formPanel:nth-child(5) {
+  animation-delay: 620ms;
+}
+
+.formPanel:nth-child(6) {
+  animation-delay: 720ms;
 }
 
 .formPanel::before {
@@ -1346,42 +1475,42 @@
   z-index: 1;
   display: grid;
   gap: 0;
-  width: min(100%, 860px);
-  margin: clamp(34px, 6vw, 66px) auto 0;
+  width: 100%;
+  margin: 0;
 }
 
 .formLead {
-  width: min(100%, 500px);
+  width: min(100%, 320px);
   margin: 0;
   color: rgba(255, 241, 243, 0.68);
   font-family: var(--font-serif-stack);
-  font-size: clamp(1.25rem, 2.4vw, 1.72rem);
-  line-height: 1.2;
-  text-align: center;
+  font-size: clamp(1rem, 1.75vw, 1.22rem);
+  line-height: 1.25;
+  text-align: left;
 }
 
 .deadlineDay {
   color: var(--white);
   font-family: var(--font-accent-stack);
-  font-size: clamp(3.2rem, 8vw, 6.8rem);
+  font-size: clamp(3rem, 7vw, 5.8rem);
   line-height: 0.72;
 }
 
 .deadlineMonth {
+  align-self: end;
   color: var(--blush);
   font-family: var(--font-serif-stack);
-  font-size: clamp(2rem, 4.5vw, 3.6rem);
+  font-size: clamp(1.56rem, 3vw, 2.4rem);
   line-height: 0.78;
   text-transform: uppercase;
 }
 
 .deadlineYear {
+  grid-column: 1 / -1;
   color: rgba(255, 241, 243, 0.76);
   font-family: var(--font-serif-stack);
-  font-size: clamp(0.92rem, 1.8vw, 1.1rem);
+  font-size: 0.86rem;
   letter-spacing: 0.16em;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
 }
 
 .field,
@@ -1403,9 +1532,9 @@
   padding-left: 34px;
   color: var(--white);
   font-family: var(--font-serif-stack);
-  font-size: clamp(1.32rem, 2.7vw, 2.12rem);
+  font-size: clamp(1.18rem, 2.2vw, 1.72rem);
   font-weight: 400;
-  line-height: 0.98;
+  line-height: 1.04;
   letter-spacing: 0;
 }
 
@@ -1463,12 +1592,12 @@
 .choiceGrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px 22px;
+  gap: 12px;
 }
 
 .choiceGridCompact {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
 }
 
@@ -1476,20 +1605,24 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  min-height: 34px;
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
+  min-height: 58px;
+  padding: 12px 16px;
+  border: 1px solid rgba(255, 241, 243, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 241, 243, 0.035);
   color: rgba(255, 241, 243, 0.94);
   font-family: var(--font-serif-stack);
   font-size: clamp(1rem, 1.8vw, 1.22rem);
   line-height: 1.2;
+  word-break: normal;
+  overflow-wrap: anywhere;
   cursor: pointer;
-  transition: color 160ms ease, opacity 160ms ease;
+  transition: color 180ms ease, opacity 180ms ease, background 180ms ease, border-color 180ms ease, transform 180ms ease;
 }
 
 .choice:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 241, 243, 0.28);
   color: var(--white);
 }
 
@@ -1514,7 +1647,7 @@
   z-index: 1;
   display: grid;
   justify-items: center;
-  gap: 18px;
+  gap: 16px;
   padding-top: clamp(30px, 5vw, 48px);
   border-top: 1px solid rgba(255, 241, 243, 0.13);
   text-align: center;
@@ -1529,6 +1662,8 @@
 }
 
 .formButton {
+  position: relative;
+  overflow: hidden;
   min-width: min(100%, 320px);
   padding: 16px 28px;
   border: 1px solid rgba(255, 241, 243, 0.28);
@@ -1544,6 +1679,14 @@
   transition: transform 160ms ease, background 160ms ease, color 160ms ease;
 }
 
+.formButton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.34), transparent);
+  transform: translateX(-120%);
+}
+
 .formButton:hover {
   transform: translateY(-2px);
   background: rgba(255, 241, 243, 0.92);
@@ -1557,6 +1700,10 @@
   opacity: 0.7;
 }
 
+.formButtonBusy::after {
+  animation: rsvpButtonSweep 950ms ease-in-out infinite;
+}
+
 .formStatus {
   margin: 0;
   padding: 14px 18px;
@@ -1567,6 +1714,7 @@
 }
 
 .formStatusSuccess {
+  border: 1px solid rgba(213, 239, 214, 0.2);
   background: rgba(89, 132, 92, 0.14);
   color: #d5efd6;
 }
@@ -1577,7 +1725,19 @@
 }
 
 .choice:has(input:checked) {
+  border-color: rgba(219, 183, 183, 0.54);
+  background: rgba(219, 183, 183, 0.12);
   color: var(--blush);
+}
+
+.rsvpSignature {
+  margin: 0;
+  color: #fff8f7;
+  font-family: var(--font-script), "Segoe Script", "Brush Script MT", cursive;
+  font-size: clamp(2.9rem, 7vw, 5.3rem);
+  line-height: 0.9;
+  opacity: 0;
+  animation: rsvpSignatureReveal 900ms cubic-bezier(0.35, 0.02, 0.15, 1) 160ms forwards;
 }
 
 .detailsCard {
@@ -1663,15 +1823,19 @@
   border: 1px solid rgba(255, 241, 243, 0.13);
 }
 
-.countdownImage {
+.countdownImageFrame {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  inset: clamp(24px, 4vw, 48px) clamp(24px, 5vw, 72px) clamp(24px, 4vw, 48px) auto;
+  z-index: 0;
+  width: min(58vw, 660px);
+  overflow: hidden;
+}
+
+.countdownImage {
   object-fit: cover;
-  object-position: center;
-  opacity: 0.82;
-  filter: grayscale(0.18) contrast(1.08);
+  object-position: center 46%;
+  opacity: 0.9;
+  filter: grayscale(0.08) contrast(1.1) brightness(0.88);
   animation: slowImageScale 24s ease-in-out infinite;
 }
 
@@ -1680,9 +1844,9 @@
   inset: 0;
   z-index: 1;
   background:
-    radial-gradient(circle at 74% 20%, rgba(106, 31, 43, 0.18), transparent 24%),
-    linear-gradient(180deg, rgba(18, 1, 5, 0.28) 0%, rgba(18, 1, 5, 0.32) 34%, rgba(18, 1, 5, 0.92) 100%),
-    linear-gradient(90deg, rgba(18, 1, 5, 0.78) 0%, transparent 42%, rgba(18, 1, 5, 0.34) 100%);
+    radial-gradient(circle at 72% 42%, rgba(255, 241, 243, 0.08), transparent 25%),
+    linear-gradient(180deg, rgba(18, 1, 5, 0.34) 0%, rgba(18, 1, 5, 0.24) 34%, rgba(18, 1, 5, 0.9) 100%),
+    linear-gradient(90deg, rgba(18, 1, 5, 0.88) 0%, rgba(18, 1, 5, 0.62) 39%, rgba(18, 1, 5, 0.18) 72%, rgba(18, 1, 5, 0.5) 100%);
 }
 
 .countdownIntro {
@@ -1943,6 +2107,8 @@
   .formCard {
     padding: 38px 20px 42px;
     border-radius: 0;
+    grid-template-columns: 1fr;
+    gap: 30px;
   }
 
   .formCard::before {
@@ -1950,11 +2116,23 @@
   }
 
   .formCard .sectionTitle {
-    font-size: 3.26rem;
+    font-size: 2.72rem;
   }
 
   .formLead {
-    font-size: 1.12rem;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .formHero,
+  .formHero .sectionHeader {
+    justify-items: center;
+    text-align: center;
+  }
+
+  .formPostcardNote {
+    width: min(100%, 260px);
+    text-align: center;
   }
 
   .dressCard,
@@ -2148,6 +2326,16 @@
     padding: 30px 20px;
   }
 
+  .countdownImageFrame {
+    inset: 0;
+    width: 100%;
+  }
+
+  .countdownImage {
+    object-position: center 44%;
+    opacity: 0.74;
+  }
+
   .countdownFooter {
     left: 20px;
     right: 20px;
@@ -2173,6 +2361,7 @@
     justify-items: center;
     justify-content: center;
     gap: 6px 14px;
+    width: min(100%, 250px);
     padding-top: 18px;
   }
 
@@ -2214,6 +2403,11 @@
     gap: 10px;
   }
 
+  .choice {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
   .formButton {
     width: 100%;
   }
@@ -2236,6 +2430,11 @@
   .heroVenue,
   .heroScrollCue,
   .heroScrollCue span,
+  .formCard,
+  .formPanel,
+  .formDeadlineCard,
+  .formButton::after,
+  .rsvpSignature,
   .invitationSeal,
   .invitationCocktail,
   .timelineHeartTop,
@@ -2281,5 +2480,14 @@
 
   .heroPrelude {
     display: none;
+  }
+
+  .formCard,
+  .formPanel,
+  .formDeadlineCard,
+  .rsvpSignature {
+    opacity: 1;
+    transform: none;
+    filter: none;
   }
 }
