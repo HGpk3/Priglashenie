@@ -8,6 +8,7 @@ import maleLookNavy from "@/design/cutouts/obj-055_877x1280-cutout.png";
 import maleLookTuxedo from "@/design/cutouts/obj-035_864x1184-cutout.png";
 import roseFrame from "@/design/extracted/obj-067_1200x1200.jpg";
 import glitterTexture from "@/design/extracted/obj-143_1280x853.jpg";
+import heroPortrait from "@/design/extracted/hero-couple-crop.jpg";
 import ribbon from "@/design/cutouts/obj-135_830x1280-cutout.png";
 import butterfly from "@/design/extracted/obj-139_712x1266.jpg";
 import fingerprintHeart from "@/design/extracted/obj-127_853x1280.jpg";
@@ -30,6 +31,7 @@ export type OutfitLook = {
 };
 
 export const weddingAssets = {
+  heroPortrait,
   roseFrame,
   glitterTexture,
   ribbon,
