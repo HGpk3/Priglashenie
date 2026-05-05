@@ -82,7 +82,7 @@ export const weddingContent = {
   },
   timeline: [
     {
-      time: "14:45",
+      time: "14:30",
       title: "сбор гостей у Петроградского ЗАГСа"
     },
     {
@@ -156,8 +156,8 @@ export const weddingContent = {
     lead: "Просим подтвердить свое присутствие",
     deadline: {
       prefix: "ДО",
-      day: "1",
-      month: "ИЮЛЯ",
+      day: "20",
+      month: "ИЮНЯ",
       year: "2026"
     },
     nameLabel: "Ваши имя и фамилия:",

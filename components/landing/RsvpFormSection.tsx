@@ -22,7 +22,8 @@ export function RsvpFormSection() {
       alcohol: String(formData.get("alcohol") ?? ""),
       meal: String(formData.get("meal") ?? ""),
       allergies: String(formData.get("allergies") ?? ""),
-      transfer: String(formData.get("transfer") ?? "")
+      transfer: String(formData.get("transfer") ?? ""),
+      website: String(formData.get("website") ?? "")
     };
 
     setIsSubmitting(true);
@@ -88,6 +89,8 @@ export function RsvpFormSection() {
                 name="name"
                 type="text"
                 placeholder="Напишите имя и фамилию"
+                autoComplete="name"
+                maxLength={120}
                 required
               />
             </div>
@@ -146,6 +149,7 @@ export function RsvpFormSection() {
                 name="allergies"
                 rows={4}
                 placeholder="Если есть, напишите здесь"
+                maxLength={500}
               />
             </div>
           </div>
@@ -163,6 +167,11 @@ export function RsvpFormSection() {
               ))}
             </div>
           </fieldset>
+
+          <div className={styles.honeypotField} aria-hidden="true">
+            <label htmlFor="website">Сайт</label>
+            <input id="website" name="website" tabIndex={-1} type="text" autoComplete="off" />
+          </div>
 
           <div className={styles.formFooter}>
             <p className={styles.formNote}>

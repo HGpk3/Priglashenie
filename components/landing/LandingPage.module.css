@@ -1582,6 +1582,16 @@
   border: 0;
 }
 
+.honeypotField {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .choiceRow {
   display: flex;
   flex-wrap: wrap;
@@ -2006,102 +2016,114 @@
 
   .heroPoster {
     min-height: 100vh;
-    min-height: 100svh;
-    padding: 28px 20px 30px;
+    min-height: 100dvh;
+    padding: 24px 18px 28px;
+    background:
+      radial-gradient(circle at 78% 14%, rgba(126, 30, 47, 0.42), transparent 24%),
+      radial-gradient(circle at 24% 62%, rgba(106, 31, 43, 0.34), transparent 32%),
+      linear-gradient(180deg, #0a0104 0%, #1b0208 55%, #26040b 100%);
   }
 
   .heroPoster::before {
-    inset: 10px;
+    inset: 10px 12px;
   }
 
   .heroPoster::after {
-    opacity: 0.22;
+    background:
+      linear-gradient(90deg, rgba(255, 241, 243, 0.08), transparent 18% 82%, rgba(255, 241, 243, 0.06)),
+      repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.052) 0 1px, transparent 1px 64px);
+    opacity: 0.18;
   }
 
   .heroPosterImage {
-    object-position: 50% 50%;
+    object-position: 50% 48%;
   }
 
   .heroPosterShade {
     background:
-      linear-gradient(180deg, rgba(7, 0, 2, 0.44) 0%, transparent 30%, rgba(11, 0, 3, 0.7) 100%),
-      linear-gradient(90deg, rgba(7, 0, 2, 0.5) 0%, rgba(7, 0, 2, 0.08) 48%, rgba(7, 0, 2, 0.36) 100%);
+      radial-gradient(circle at 50% 50%, transparent 0 30%, rgba(7, 0, 2, 0.34) 68%, rgba(7, 0, 2, 0.64) 100%),
+      linear-gradient(180deg, rgba(7, 0, 2, 0.62) 0%, rgba(7, 0, 2, 0.08) 34%, rgba(11, 0, 3, 0.76) 100%),
+      linear-gradient(90deg, rgba(7, 0, 2, 0.48) 0%, rgba(7, 0, 2, 0.04) 48%, rgba(7, 0, 2, 0.42) 100%);
   }
 
   .heroCopy {
     align-self: start;
     justify-items: center;
     width: 100%;
-    padding-top: 124px;
+    padding-top: clamp(72px, 10svh, 104px);
     text-align: center;
   }
 
   .heroKicker {
-    margin-bottom: 16px;
-    font-size: 0.68rem;
-    letter-spacing: 0.2em;
+    margin-bottom: 14px;
+    font-size: 0.64rem;
+    letter-spacing: 0.22em;
   }
 
   .heroNames {
-    gap: 11px;
+    gap: 14px;
     justify-items: center;
-    font-size: 3.15rem;
-    line-height: 0.78;
+    font-size: clamp(3.45rem, 14.2vw, 4rem);
+    line-height: 0.72;
     letter-spacing: 0.06em;
   }
 
   .heroDateLine {
     justify-content: center;
-    gap: 10px;
-    margin-top: 18px;
-    padding: 11px 0;
-    font-size: 0.74rem;
+    gap: 12px;
+    margin-top: 20px;
+    padding: 10px 0 11px;
+    font-size: 0.72rem;
     letter-spacing: 0.12em;
   }
 
   .heroDateLine span:first-child {
-    font-size: 2.35rem;
+    font-size: 2.55rem;
   }
 
   .heroPhotoStage {
-    right: 14px;
-    bottom: 112px;
-    left: 14px;
+    top: clamp(354px, 41dvh, 400px);
+    right: 20px;
+    bottom: auto;
+    left: 20px;
     width: auto;
-    height: auto;
+    height: clamp(278px, 35dvh, 340px);
     max-height: none;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: auto;
+    border-color: rgba(255, 241, 243, 0.2);
+    box-shadow: 0 22px 56px rgba(0, 0, 0, 0.44);
   }
 
   .heroVenue {
-    left: 20px;
-    right: 20px;
-    bottom: 28px;
-    font-size: 0.86rem;
+    left: 26px;
+    right: 72px;
+    bottom: 34px;
+    font-size: 0.82rem;
+    text-align: left;
   }
 
   .heroVenue span:first-child {
-    font-size: 1rem;
+    font-size: 0.98rem;
   }
 
   .heroScrollCue {
-    right: 22px;
-    bottom: 28px;
-    height: 44px;
+    right: 28px;
+    bottom: 34px;
+    height: 48px;
   }
 
   .heroRoses {
-    top: 22px;
-    right: -126px;
-    width: 278px;
-    opacity: 0.5;
+    top: 18px;
+    right: -112px;
+    width: 260px;
+    opacity: 0.46;
   }
 
   .heroHeart {
-    left: -72px;
-    bottom: 144px;
-    width: 130px;
-    opacity: 0.18;
+    left: -80px;
+    bottom: 188px;
+    width: 146px;
+    opacity: 0.16;
   }
 
   .formCard {
