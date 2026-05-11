@@ -1,0 +1,47 @@
+<svg width="620" height="620" viewBox="0 0 620 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="petal" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(144 151) rotate(48) scale(128 112)">
+      <stop stop-color="#F0A2A8"/>
+      <stop offset="0.42" stop-color="#B71932"/>
+      <stop offset="1" stop-color="#520711"/>
+    </radialGradient>
+    <linearGradient id="stem" x1="184" y1="198" x2="492" y2="464" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#802436"/>
+      <stop offset="1" stop-color="#1D0710"/>
+    </linearGradient>
+    <filter id="shadow" x="-40" y="-40" width="700" height="700" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="28" stdDeviation="24" flood-color="#000000" flood-opacity="0.42"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#shadow)" opacity="0.95">
+    <path d="M170 186C246 213 329 279 389 351C426 396 455 441 474 489" stroke="url(#stem)" stroke-width="12" stroke-linecap="round"/>
+    <path d="M274 281C239 267 207 267 174 285C206 295 236 293 274 281Z" fill="#641424" opacity="0.72"/>
+    <path d="M359 358C395 346 426 353 455 378C421 384 393 377 359 358Z" fill="#641424" opacity="0.74"/>
+
+    <g transform="translate(96 74)">
+      <path d="M89 16C128 22 164 53 173 95C184 146 145 194 91 193C42 192 5 155 3 111C1 60 40 8 89 16Z" fill="url(#petal)"/>
+      <path d="M92 48C120 51 144 72 150 100C158 135 130 166 94 166C61 166 35 142 34 111C33 76 60 44 92 48Z" fill="#8F1025"/>
+      <path d="M94 75C113 77 128 90 131 108C136 130 118 149 95 149C74 149 58 134 58 114C57 92 73 73 94 75Z" fill="#D74351"/>
+      <path d="M94 96C104 97 111 104 113 113C115 124 106 133 95 133C84 133 76 125 76 115C76 104 84 95 94 96Z" fill="#5F0715"/>
+      <path d="M39 92C61 59 100 39 142 53" stroke="#F4B5B8" stroke-width="7" stroke-linecap="round" opacity="0.44"/>
+      <path d="M43 141C76 166 124 161 151 126" stroke="#2C0208" stroke-width="8" stroke-linecap="round" opacity="0.34"/>
+    </g>
+
+    <g transform="translate(354 86) rotate(18)">
+      <path d="M75 9C110 14 141 42 149 79C158 123 124 165 78 164C36 163 4 131 2 94C0 50 34 2 75 9Z" fill="url(#petal)"/>
+      <path d="M78 36C102 39 122 56 127 80C134 109 111 137 80 137C52 137 30 116 29 91C28 62 51 33 78 36Z" fill="#941328"/>
+      <path d="M80 59C96 61 108 72 111 88C115 106 100 122 81 122C64 122 50 109 50 92C49 74 63 58 80 59Z" fill="#D94B58"/>
+      <path d="M80 78C89 79 95 85 96 93C98 102 90 110 81 110C72 110 65 103 65 94C65 85 72 77 80 78Z" fill="#5A0613"/>
+      <path d="M34 77C52 49 85 32 121 44" stroke="#F2ADB2" stroke-width="6" stroke-linecap="round" opacity="0.42"/>
+    </g>
+
+    <g transform="translate(286 356) rotate(-16)">
+      <path d="M82 12C119 18 153 47 161 87C171 134 135 179 85 178C40 177 5 143 3 102C1 55 37 5 82 12Z" fill="url(#petal)"/>
+      <path d="M85 42C111 45 133 64 138 90C146 122 120 151 87 151C57 151 33 129 32 100C31 68 56 39 85 42Z" fill="#901126"/>
+      <path d="M86 67C103 69 117 81 120 99C125 119 108 137 88 137C69 137 54 123 54 104C53 84 68 66 86 67Z" fill="#D23E4D"/>
+      <path d="M87 87C96 88 103 95 105 104C107 114 99 123 88 123C78 123 70 116 70 106C70 96 78 86 87 87Z" fill="#5B0613"/>
+      <path d="M38 85C58 54 94 36 133 49" stroke="#F5B6BA" stroke-width="6" stroke-linecap="round" opacity="0.42"/>
+    </g>
+  </g>
+</svg>

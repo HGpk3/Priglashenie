@@ -6,6 +6,7 @@ build
 .cache
 .parcel-cache
 coverage
+.data
 .DS_Store
 Thumbs.db
 .env

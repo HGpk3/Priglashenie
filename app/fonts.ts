@@ -13,6 +13,11 @@ export const cormorant = localFont({
       style: "italic"
     },
     {
+      path: "../fonts/CormorantGaramond-LightItalic.ttf",
+      weight: "300",
+      style: "italic"
+    },
+    {
       path: "../fonts/CormorantGaramond-Medium.ttf",
       weight: "500",
       style: "normal"

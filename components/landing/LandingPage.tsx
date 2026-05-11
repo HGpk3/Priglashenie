@@ -8,6 +8,7 @@ import { RsvpFormSection } from "./RsvpFormSection";
 import { DetailsSection } from "./DetailsSection";
 import { CountdownSection } from "./CountdownSection";
 import { ScrollReveal } from "./ScrollReveal";
+import { RsvpResultsButton } from "./RsvpResultsButton";
 
 export function LandingPage() {
   return (
@@ -26,6 +27,7 @@ export function LandingPage() {
       <RsvpFormSection />
       <DetailsSection />
       <CountdownSection />
+      <RsvpResultsButton />
     </main>
   );
 }

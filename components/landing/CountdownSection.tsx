@@ -11,7 +11,9 @@ export function CountdownSection() {
         <div className={styles.countdownIntro}>
           <div className={styles.sectionHeader}>
             <h2 className={styles.sectionTitle}>{weddingContent.countdown.title}</h2>
-            <p className={styles.countdownDateLine}>13 августа 2026 · 15:00 МСК</p>
+            <p className={styles.countdownDateLine}>
+              {weddingContent.event.dateFull} · {weddingContent.event.timeLabel}
+            </p>
           </div>
         </div>
 

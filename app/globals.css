@@ -19,9 +19,9 @@
   --font-sans: var(--font-serif), "Cormorant Garamond", "Baskerville", "Times New Roman", serif;
   /* If these fonts are installed locally, the browser will use them before the web fallbacks. */
   --font-serif-stack: var(--font-serif), "Cormorant Garamond", "Baskerville", "Times New Roman", serif;
-  --font-script-stack: "Good Vibes Pro", var(--font-script), "Snell Roundhand", "Apple Chancery", "URW Chancery L", cursive;
-  --font-decorative-stack: "Adine Kirnberg", var(--font-decorative), "Zapfino", "Snell Roundhand", cursive;
-  --font-accent-stack: var(--font-display-accent), "Aboreto", "Cormorant Garamond", serif;
+  --font-script-stack: var(--font-script), "Good Vibes Pro", "Snell Roundhand", "Apple Chancery", "URW Chancery L", cursive;
+  --font-decorative-stack: var(--font-decorative), "Adine Kirnberg", "Zapfino", "Snell Roundhand", cursive;
+  --font-accent-stack: var(--font-display-accent), var(--font-serif), "Cormorant Garamond", serif;
 }
 
 * {

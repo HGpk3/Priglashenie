@@ -1,6 +1,5 @@
 import type { StaticImageData } from "next/image";
 import { designTokens } from "@/data/design-tokens";
-import roseFrame from "@/design/extracted/obj-067_1200x1200.jpg";
 import glitterTexture from "@/design/extracted/obj-143_1280x853.jpg";
 import heroPortrait from "@/design/extracted/hero-couple-crop.jpg";
 import closingPhoto from "@/source/photo_5276421358579554336_y 2.png";
@@ -40,7 +39,6 @@ export type OutfitLook = {
 export const weddingAssets = {
   heroPortrait,
   closingPhoto,
-  roseFrame,
   glitterTexture,
   ribbon,
   butterfly,
@@ -57,9 +55,10 @@ export const weddingContent = {
     initials: ["Д", "Э"]
   },
   event: {
-    dateIso: "2026-08-13T15:00:00+03:00",
+    dateIso: "2026-08-13T14:30:00+03:00",
     dateLabel: "13.08.2026",
     dateFull: "13 августа 2026",
+    timeLabel: "14:30 МСК",
     venue: "Four Seasons Lion Palace",
     address: "Вознесенский, 1"
   },

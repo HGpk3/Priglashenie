@@ -9,6 +9,12 @@ import { useEffect, useState } from "react";
 export function HeroSection() {
   const [groom, bride] = [weddingContent.couple.groom, weddingContent.couple.bride];
   const [showPrelude, setShowPrelude] = useState(true);
+  const renderName = (name: string) => (
+    <span className={styles.heroNameWord}>
+      <span className={styles.heroNameInitial}>{name.slice(0, 1)}</span>
+      {name.slice(1)}
+    </span>
+  );
 
   useEffect(() => {
     const timer = window.setTimeout(() => setShowPrelude(false), 2750);
@@ -47,14 +53,6 @@ export function HeroSection() {
           sizes="100vw"
         />
         <Image
-          src={weddingAssets.roseFrame}
-          alt=""
-          className={styles.heroRoses}
-          aria-hidden="true"
-          width={520}
-          height={520}
-        />
-        <Image
           src={weddingAssets.fingerprintHeart}
           alt=""
           className={styles.heroHeart}
@@ -64,10 +62,10 @@ export function HeroSection() {
         />
 
         <div className={styles.heroCopy}>
-          <p className={styles.heroKicker}>wedding invitation</p>
+          <p className={styles.heroKicker}>wedding</p>
           <h1 className={styles.heroNames} aria-label={`${groom} и ${bride}`}>
-            <span>{groom}</span>
-            <span>{bride}</span>
+            {renderName(groom)}
+            {renderName(bride)}
           </h1>
           <div className={styles.heroDateLine} aria-label={weddingContent.event.dateFull}>
             <span>{weddingContent.hero.day}</span>
