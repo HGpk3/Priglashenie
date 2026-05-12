@@ -28,7 +28,7 @@ export function HeroSection() {
         {showPrelude ? (
           <div className={styles.heroPrelude} aria-hidden="true">
             <div className={styles.heroPreludeInk}>
-              <span className={styles.heroPreludeName}>Danil &amp; Elena</span>
+              <span className={styles.heroPreludeName}>Danil &amp; Helena</span>
               <span className={styles.heroPreludeDate}>{weddingContent.event.dateFull}</span>
             </div>
           </div>
@@ -72,11 +72,6 @@ export function HeroSection() {
             <span>{weddingContent.hero.month}</span>
             <span>{weddingContent.hero.year}</span>
           </div>
-        </div>
-
-        <div className={styles.heroVenue}>
-          <span>{weddingContent.event.venue}</span>
-          <span>{weddingContent.event.address}</span>
         </div>
 
         <div className={styles.heroScrollCue} aria-hidden="true">

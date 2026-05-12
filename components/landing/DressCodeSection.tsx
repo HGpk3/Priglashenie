@@ -4,7 +4,7 @@ import { weddingContent } from "@/data/wedding-content";
 
 export function DressCodeSection() {
   return (
-    <section className={styles.section} id={designTokens.sectionIds.dressCode}>
+    <section className={`${styles.section} ${styles.lightSection}`} id={designTokens.sectionIds.dressCode}>
       <div className={styles.dressGrid}>
         <div className={`${styles.card} ${styles.dressCard}`}>
           <div className={styles.sectionHeader}>

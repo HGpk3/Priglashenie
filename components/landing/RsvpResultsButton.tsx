@@ -9,7 +9,7 @@ type RsvpSubmission = {
   source: string;
   name: string;
   attendance: string;
-  alcohol: string;
+  alcohol: string[];
   meal: string;
   allergies: string;
   transfer: string;
@@ -165,7 +165,7 @@ export function RsvpResultsButton() {
                       </div>
                       <div>
                         <dt>Алкоголь</dt>
-                        <dd>{submission.alcohol}</dd>
+                        <dd>{submission.alcohol.join(", ")}</dd>
                       </div>
                       <div>
                         <dt>Блюдо</dt>

@@ -17,13 +17,11 @@ export function DetailsSection() {
                 <div className={styles.detailTextWrap}>
                   <p>{item}</p>
                   {index === 0 ? <p className={styles.detailExtraLine}>{weddingContent.details.extraLine}</p> : null}
-                  {index === weddingContent.details.items.length - 1 ? (
-                    <p className={styles.detailClosingLine}>{weddingContent.details.closingLine}</p>
-                  ) : null}
                 </div>
               </article>
             ))}
           </div>
+          <p className={styles.detailClosingLine}>{weddingContent.details.closingLine}</p>
         </div>
       </div>
     </section>

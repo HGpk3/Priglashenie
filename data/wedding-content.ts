@@ -3,7 +3,6 @@ import { designTokens } from "@/data/design-tokens";
 import glitterTexture from "@/design/extracted/obj-143_1280x853.jpg";
 import heroPortrait from "@/design/extracted/hero-couple-crop.jpg";
 import closingPhoto from "@/source/photo_5276421358579554336_y 2.png";
-import ribbon from "@/design/cutouts/obj-135_830x1280-cutout.png";
 import butterfly from "@/design/extracted/obj-139_712x1266.jpg";
 import fingerprintHeart from "@/design/extracted/obj-127_853x1280.jpg";
 import cocktail from "@/design/extracted/obj-119_736x736.jpg";
@@ -12,7 +11,6 @@ import femaleLookBurgundyDress from "@/source/photo_5276421358579554501_y 2.png"
 import femaleLookChocolateDress from "@/source/photo_5276421358579554502_y 2.png";
 import femaleLookGraphiteDress from "@/source/photo_5278719209032586635_y 1.png";
 import femaleLookNavyDress from "@/source/photo_5278719209032586642_y 1.png";
-import femaleLookPowderDress from "@/source/photo_5278719209032586644_y 1.png";
 import femaleLookWineTop from "@/source/photo_5278719209032586641_x 1.png";
 import femaleLookEmeraldDress from "@/source/photo_5278719209032586636_y 1.png";
 import femaleLookLavenderDress from "@/source/photo_5278719209032586638_y 1.png";
@@ -37,10 +35,9 @@ export type OutfitLook = {
 };
 
 export const weddingAssets = {
-  heroPortrait,
-  closingPhoto,
+  heroPortrait: closingPhoto,
+  closingPhoto: heroPortrait,
   glitterTexture,
-  ribbon,
   butterfly,
   fingerprintHeart,
   cocktail,
@@ -113,12 +110,11 @@ export const weddingContent = {
       { key: "steel-blue", label: "Серо-голубой", hex: designTokens.colors.steelBlue },
       { key: "olive", label: "Глубокий оливковый", hex: designTokens.colors.olive },
       { key: "dusty-rose", label: "Пепельная роза", hex: designTokens.colors.dustyRose },
-      { key: "powder", label: "Пудра", hex: designTokens.colors.powder },
       { key: "burgundy", label: "Бордовый", hex: designTokens.colors.burgundy },
       { key: "navy", label: "Тёмно-синий", hex: designTokens.colors.navy },
       { key: "chocolate", label: "Шоколад", hex: designTokens.colors.chocolate },
       { key: "black", label: "Чёрный", hex: designTokens.colors.black },
-      { key: "blush", label: "Серебристо-розовый", hex: designTokens.colors.blush }
+      { key: "blush", label: "Розовый", hex: designTokens.colors.blush }
     ]
   },
   outfitGalleries: {
@@ -129,7 +125,6 @@ export const weddingContent = {
       { image: femaleLookChocolateDress, label: "Шоколадное платье", tone: "chocolate" },
       { image: femaleLookGraphiteDress, label: "Графитовое платье", tone: "graphite" },
       { image: femaleLookNavyDress, label: "Тёмно-синее платье", tone: "navy" },
-      { image: femaleLookPowderDress, label: "Пудровое платье", tone: "powder" },
       { image: femaleLookWineTop, label: "Винный топ", tone: "burgundy" },
       { image: femaleLookEmeraldDress, label: "Изумрудное платье", tone: "emerald" },
       { image: femaleLookLavenderDress, label: "Лавандовое платье", tone: "lavender" },

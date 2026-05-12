@@ -9,7 +9,7 @@ export const dynamic = "force-dynamic";
 type RsvpPayload = {
   name?: string;
   attendance?: string;
-  alcohol?: string;
+  alcohol?: string | string[];
   meal?: string;
   allergies?: string;
   transfer?: string;
@@ -19,7 +19,7 @@ type RsvpPayload = {
 type NormalizedRsvpPayload = {
   name: string;
   attendance: string;
-  alcohol: string;
+  alcohol: string[];
   meal: string;
   allergies: string;
   transfer: string;
@@ -52,6 +52,12 @@ const submissionBuckets = new Map<string, number[]>();
 
 function normalizeValue(value: unknown) {
   return typeof value === "string" ? value.trim().slice(0, MAX_FIELD_LENGTH) : "";
+}
+
+function normalizeStringList(value: unknown) {
+  const values = Array.isArray(value) ? value : [value];
+
+  return values.map(normalizeValue).filter(Boolean);
 }
 
 function getEnv(name: string) {
@@ -106,7 +112,7 @@ function validatePayload(payload: NormalizedRsvpPayload) {
     return { ok: false as const, error: "Укажите имя и фамилию." };
   }
 
-  if (!payload.attendance || !payload.alcohol || !payload.meal || !payload.transfer) {
+  if (!payload.attendance || payload.alcohol.length === 0 || !payload.meal || !payload.transfer) {
     return { ok: false as const, error: "Заполните обязательные поля анкеты." };
   }
 
@@ -114,7 +120,7 @@ function validatePayload(payload: NormalizedRsvpPayload) {
     return { ok: false as const, error: "Выберите корректный вариант присутствия." };
   }
 
-  if (!alcoholOptions.has(payload.alcohol)) {
+  if (payload.alcohol.some((option) => !alcoholOptions.has(option))) {
     return { ok: false as const, error: "Выберите корректный вариант алкоголя." };
   }
 
@@ -133,7 +139,7 @@ function normalizeSubmission(payload: RsvpPayload): NormalizedRsvpPayload {
   return {
     name: normalizeValue(payload.name),
     attendance: normalizeValue(payload.attendance),
-    alcohol: normalizeValue(payload.alcohol),
+    alcohol: normalizeStringList(payload.alcohol),
     meal: normalizeValue(payload.meal),
     allergies: normalizeValue(payload.allergies),
     transfer: normalizeValue(payload.transfer),
@@ -172,7 +178,14 @@ async function readSubmissions() {
       .split("\n")
       .map((line) => line.trim())
       .filter(Boolean)
-      .map((line) => JSON.parse(line) as StoredRsvpSubmission)
+      .map((line) => {
+        const submission = JSON.parse(line) as StoredRsvpSubmission | (Omit<StoredRsvpSubmission, "alcohol"> & { alcohol: string });
+
+        return {
+          ...submission,
+          alcohol: Array.isArray(submission.alcohol) ? submission.alcohol : [submission.alcohol].filter(Boolean)
+        } as StoredRsvpSubmission;
+      })
       .sort((a, b) => b.submittedAt.localeCompare(a.submittedAt));
   } catch (error) {
     if (isNodeError(error) && error.code === "ENOENT") {
@@ -198,7 +211,13 @@ function buildSummary(submissions: StoredRsvpSubmission[]) {
     attending: submissions.filter((submission) => submission.attendance === "Да").length,
     notAttending: submissions.filter((submission) => submission.attendance === "Нет").length,
     needsTransfer: submissions.filter((submission) => submission.transfer === "Да").length,
-    alcohol: countBy(submissions, (submission) => submission.alcohol),
+    alcohol: submissions.reduce<Record<string, number>>((accumulator, submission) => {
+      submission.alcohol.forEach((option) => {
+        accumulator[option] = (accumulator[option] ?? 0) + 1;
+      });
+
+      return accumulator;
+    }, {}),
     meal: countBy(submissions, (submission) => submission.meal)
   };
 }

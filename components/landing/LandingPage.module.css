@@ -284,9 +284,13 @@
 .section {
   position: relative;
   z-index: 1;
-  width: min(calc(100% - 32px), 1160px);
+  width: 100%;
   margin: 0 auto;
   padding-top: 104px;
+}
+
+.lightSection {
+  background: linear-gradient(180deg, #f8eeee 0%, #f3e5e4 100%);
 }
 
 .revealSection {
@@ -344,10 +348,10 @@
 }
 
 .card {
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 32px;
+  border: 0;
+  border-radius: 0;
   background: rgba(255, 255, 255, 0.03);
-  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.24);
+  box-shadow: none;
   backdrop-filter: blur(18px);
 }
 
@@ -395,17 +399,18 @@
 
 .heroPhotoStage {
   position: absolute;
-  right: clamp(18px, 6vw, 92px);
-  bottom: clamp(70px, 8vw, 112px);
+  right: 7.5vw;
+  bottom: clamp(12px, 1.6vw, 24px);
+  left: 7.5vw;
   z-index: 1;
   width: auto;
-  height: min(72svh, 680px);
-  aspect-ratio: 4 / 3;
-  max-width: min(58vw, 820px);
+  height: min(94svh, 980px);
+  aspect-ratio: auto;
+  max-width: none;
   overflow: hidden;
-  border: 1px solid rgba(255, 241, 243, 0.13);
+  border: 0;
   background: #120105;
-  box-shadow: 0 34px 90px rgba(0, 0, 0, 0.46);
+  box-shadow: none;
   opacity: 0;
   animation: heroStageReveal 980ms cubic-bezier(0.2, 0.82, 0.2, 1) 860ms forwards;
 }
@@ -450,23 +455,6 @@
   mix-blend-mode: screen;
   filter: grayscale(1) contrast(1.4);
   animation: heroBreath 32s ease-in-out infinite reverse;
-}
-
-.heroRoses {
-  position: absolute;
-  top: clamp(22px, 5vw, 76px);
-  right: clamp(20px, 5vw, 82px);
-  z-index: 0;
-  width: clamp(240px, 31vw, 540px);
-  aspect-ratio: 1;
-  background: url("/decor/rose-cluster.svg") center / contain no-repeat;
-  opacity: 0.42;
-  mix-blend-mode: screen;
-  filter: drop-shadow(0 22px 36px rgba(0, 0, 0, 0.38));
-  --float-rotate: 10deg;
-  --float-y: -14px;
-  --float-x: -6px;
-  animation: softFloat 12s ease-in-out infinite;
 }
 
 .heroHeart {
@@ -562,7 +550,7 @@
   display: grid;
   align-self: center;
   justify-items: start;
-  width: min(42vw, 540px);
+  width: min(44vw, 560px);
   margin: 0;
   padding-top: clamp(52px, 7vh, 96px);
   text-align: left;
@@ -575,7 +563,7 @@
   font-size: 0.78rem;
   line-height: 1;
   letter-spacing: 0.34em;
-  text-transform: uppercase;
+  text-transform: none;
   opacity: 0;
   animation: heroTextReveal 780ms ease 1180ms forwards;
 }
@@ -599,6 +587,21 @@
 
 .heroNames span {
   opacity: 1;
+}
+
+.heroNameWord {
+  display: block;
+}
+
+.heroNameInitial {
+  display: inline-block;
+  min-width: 0.72em;
+  font-family: var(--font-decorative-stack);
+  font-size: 1.28em;
+  font-weight: 400;
+  line-height: 0.58;
+  text-transform: none;
+  transform: translateY(0.04em);
 }
 
 .heroDateLine {
@@ -687,13 +690,13 @@
   width: 100%;
   margin: 0 auto;
   overflow: visible;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 38px;
+  border: 0;
+  border-radius: clamp(34px, 7vw, 92px);
   background:
     radial-gradient(circle at top right, rgba(255, 255, 255, 0.48), transparent 24%),
     radial-gradient(circle at 10% 100%, rgba(255, 255, 255, 0.1), transparent 22%),
-    linear-gradient(180deg, #e4c4c2 0%, #d6acab 100%);
-  box-shadow: 0 24px 52px rgba(0, 0, 0, 0.28);
+    linear-gradient(180deg, #e5bebf 0%, #d8aeb0 100%);
+  box-shadow: none;
   isolation: isolate;
 }
 
@@ -702,8 +705,8 @@
   z-index: 2;
   display: grid;
   justify-items: center;
-  min-height: 560px;
-  padding: 40px 64px 48px;
+  min-height: clamp(620px, 78vw, 930px);
+  padding: clamp(58px, 8vw, 108px) clamp(28px, 8vw, 96px) clamp(54px, 7vw, 92px);
   border-radius: inherit;
   color: var(--background);
   text-align: center;
@@ -711,10 +714,10 @@
 
 .invitationSeal {
   position: absolute;
-  top: -22px;
-  right: -18px;
+  top: -34px;
+  right: -24px;
   z-index: 3;
-  width: 62px;
+  width: clamp(78px, 9vw, 118px);
   height: auto;
   opacity: 0.98;
   filter: drop-shadow(0 10px 16px rgba(33, 2, 8, 0.26));
@@ -725,26 +728,29 @@
 
 .invitationHeader {
   display: grid;
-  gap: 12px;
-  justify-items: center;
-  width: min(calc(100% - 220px), 760px);
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: end;
+  gap: clamp(18px, 3vw, 42px);
+  width: min(100%, 920px);
 }
 
 .invitationEyebrow {
   margin: 0;
-  font-family: var(--font-decorative-stack);
-  font-size: clamp(2.2rem, 3.4vw, 3.4rem);
-  line-height: 0.96;
+  font-family: var(--font-serif-stack);
+  font-size: clamp(4.2rem, 10vw, 9.2rem);
+  font-weight: 400;
+  line-height: 0.72;
   letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 .invitationScript {
   margin: 0;
-  max-width: 14ch;
-  font-family: var(--font-serif-stack);
-  font-size: clamp(2.35rem, 3.5vw, 3.5rem);
-  font-weight: 700;
-  line-height: 1.04;
+  max-width: none;
+  font-family: var(--font-script-stack);
+  font-size: clamp(2.35rem, 4.7vw, 4.8rem);
+  font-weight: 400;
+  line-height: 0.78;
   letter-spacing: 0;
   text-wrap: balance;
 }
@@ -752,12 +758,12 @@
 .invitationText,
 .cardText {
   display: grid;
-  gap: 18px;
-  width: min(calc(100% - 240px), 720px);
-  margin: 30px auto 0;
+  gap: 3px;
+  width: min(100%, 980px);
+  margin: clamp(52px, 7vw, 82px) auto 0;
   font-family: var(--font-serif-stack);
-  font-size: clamp(1rem, 1.35vw, 1.18rem);
-  line-height: 1.38;
+  font-size: clamp(1.62rem, 3.35vw, 2.65rem);
+  line-height: 1.08;
   letter-spacing: 0;
   text-align: center;
 }
@@ -770,10 +776,10 @@
 
 .invitationMetaStack {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 28px;
-  width: min(calc(100% - 240px), 760px);
-  margin-top: 42px;
+  grid-template-columns: 1fr;
+  gap: clamp(34px, 5vw, 52px);
+  width: min(100%, 840px);
+  margin-top: clamp(48px, 7vw, 72px);
   padding-right: 0;
 }
 
@@ -785,31 +791,32 @@
 
 .metaLabel {
   font-family: var(--font-script-stack);
-  font-size: clamp(1.3rem, 2vw, 1.8rem);
-  line-height: 1;
+  font-size: clamp(2.28rem, 4.35vw, 4.4rem);
+  line-height: 0.8;
   color: rgba(33, 2, 8, 0.92);
 }
 
 .invitationDateValue {
-  font-family: var(--font-script-stack);
-  font-size: clamp(2.7rem, 4.2vw, 3.5rem);
-  line-height: 0.9;
+  font-family: var(--font-serif-stack);
+  font-size: clamp(3.8rem, 8vw, 7rem);
+  font-style: italic;
+  line-height: 0.92;
 }
 
 .invitationVenueValue {
   margin: 0;
   white-space: pre-line;
   font-family: var(--font-serif-stack);
-  font-size: clamp(0.96rem, 1.3vw, 1.14rem);
-  line-height: 1.3;
+  font-size: clamp(2.2rem, 4.6vw, 4.4rem);
+  line-height: 1.18;
 }
 
 .invitationCocktail {
   position: absolute;
-  right: -8px;
-  bottom: 8px;
+  right: clamp(-42px, -2vw, -12px);
+  bottom: 5%;
   z-index: 3;
-  width: clamp(176px, 18vw, 232px);
+  width: clamp(190px, 27vw, 360px);
   height: auto;
   pointer-events: none;
   filter: drop-shadow(0 18px 24px rgba(0, 0, 0, 0.22));
@@ -824,19 +831,16 @@
 }
 
 .timelineCard {
-  --timeline-time-column: clamp(94px, 16vw, 172px);
+  --timeline-time-column: clamp(116px, 18vw, 190px);
   position: relative;
-  overflow: hidden;
-  width: min(100%, 920px);
-  min-height: clamp(610px, 82vw, 760px);
-  padding: clamp(42px, 7vw, 74px) clamp(26px, 7vw, 78px);
-  border: 1px solid rgba(219, 183, 183, 0.12);
+  overflow: visible;
+  width: 100%;
+  min-height: auto;
+  padding: clamp(42px, 7vw, 74px) clamp(24px, 8vw, 110px);
+  border: 0;
   border-radius: 0;
-  background:
-    radial-gradient(circle at 78% 14%, rgba(171, 36, 55, 0.34), transparent 22%),
-    radial-gradient(circle at 24% 82%, rgba(219, 183, 183, 0.12), transparent 20%),
-    linear-gradient(180deg, #25030a 0%, #130106 56%, #26030a 100%);
-  box-shadow: 0 34px 90px rgba(0, 0, 0, 0.34);
+  background: transparent;
+  box-shadow: none;
   isolation: isolate;
 }
 
@@ -847,21 +851,9 @@
   pointer-events: none;
 }
 
-.timelineCard::before {
-  inset: 18px;
-  z-index: 0;
-  border: 1px solid rgba(255, 241, 243, 0.12);
-}
-
+.timelineCard::before,
 .timelineCard::after {
-  right: clamp(-120px, -8vw, -64px);
-  bottom: clamp(-160px, -13vw, -96px);
-  z-index: 0;
-  width: clamp(280px, 43vw, 470px);
-  aspect-ratio: 1;
-  border-radius: 999px;
-  background: rgba(106, 31, 43, 0.28);
-  filter: blur(54px);
+  display: none;
 }
 
 .timelineHeader {
@@ -871,7 +863,7 @@
   justify-items: center;
   gap: 8px;
   text-align: center;
-  padding: 0 clamp(34px, 8vw, 118px);
+  padding: 0 clamp(24px, 8vw, 118px);
 }
 
 .timelineHeader .sectionTitle {
@@ -945,7 +937,7 @@
   position: relative;
   display: grid;
   grid-template-columns: var(--timeline-time-column) minmax(0, 1fr);
-  gap: clamp(22px, 4vw, 42px);
+  gap: clamp(34px, 5vw, 64px);
   align-items: start;
   padding: clamp(18px, 3vw, 26px) 0;
   transition: transform 220ms ease;
@@ -966,6 +958,7 @@
   font-family: var(--font-accent-stack);
   font-size: clamp(2.25rem, 5vw, 4.55rem);
   line-height: 0.78;
+  padding-right: clamp(16px, 2.8vw, 34px);
   text-align: right;
   white-space: nowrap;
   text-shadow: 0 12px 28px rgba(0, 0, 0, 0.36);
@@ -1021,19 +1014,16 @@
 
 .dressCard,
 .galleryCard {
-  border-color: rgba(33, 2, 8, 0.08);
-  background:
-    radial-gradient(circle at 12% 0%, rgba(255, 255, 255, 0.72), transparent 26%),
-    radial-gradient(circle at 86% 18%, rgba(219, 183, 183, 0.42), transparent 28%),
-    linear-gradient(180deg, #f6e8e5 0%, #e6c8c5 100%);
+  border: 0;
+  background: transparent;
   color: var(--background);
-  box-shadow: 0 34px 90px rgba(0, 0, 0, 0.22);
+  box-shadow: none;
 }
 
 .dressCard {
   position: relative;
   overflow: hidden;
-  padding: clamp(38px, 6vw, 72px) clamp(24px, 6vw, 74px);
+  padding: clamp(38px, 6vw, 72px) clamp(18px, 7vw, 88px);
   border-radius: 0;
 }
 
@@ -1045,8 +1035,7 @@
 }
 
 .dressCard::before {
-  inset: 18px;
-  border: 1px solid rgba(33, 2, 8, 0.1);
+  display: none;
 }
 
 .dressCard::after {
@@ -1060,29 +1049,14 @@
 }
 
 .gallerySection {
-  padding-top: 24px;
+  padding-top: 0;
 }
 
 .galleryCard {
   overflow: hidden;
   position: relative;
-  padding: clamp(34px, 6vw, 68px) clamp(18px, 5vw, 58px);
+  padding: clamp(34px, 6vw, 68px) 0;
   border-radius: 0;
-}
-
-.galleryRibbon {
-  position: absolute;
-  right: clamp(-18px, 3vw, 28px);
-  top: clamp(10px, 2vw, 22px);
-  z-index: 0;
-  width: clamp(100px, 14vw, 174px);
-  height: auto;
-  opacity: 0.7;
-  filter: drop-shadow(0 16px 18px rgba(33, 2, 8, 0.16));
-  --float-rotate: 8deg;
-  --float-y: -7px;
-  --float-x: 3px;
-  animation: softFloat 9s ease-in-out infinite;
 }
 
 .dressCard .sectionTitle,
@@ -1102,9 +1076,9 @@
 }
 
 .dressBodyText {
-  width: min(100%, 700px);
+  width: min(100%, 760px);
   margin-top: 20px;
-  font-size: clamp(1.16rem, 2.1vw, 1.42rem);
+  font-size: clamp(1.02rem, 1.7vw, 1.24rem);
   line-height: 1.45;
 }
 
@@ -1117,8 +1091,9 @@
 }
 
 .paletteGrid {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: clamp(10px, 1.6vw, 18px);
   width: min(100%, 820px);
   margin: clamp(30px, 5vw, 54px) auto 0;
@@ -1128,6 +1103,7 @@
   display: grid;
   justify-items: center;
   gap: 8px;
+  flex: 0 1 clamp(92px, 12vw, 124px);
   min-width: 0;
   transition: transform 180ms ease;
 }
@@ -1136,11 +1112,9 @@
   display: block;
   width: min(100%, 72px);
   aspect-ratio: 1;
-  border: 1px solid rgba(33, 2, 8, 0.16);
+  border: 0;
   border-radius: 999px;
-  box-shadow:
-    inset 0 0 0 5px rgba(255, 255, 255, 0.22),
-    0 12px 24px rgba(33, 2, 8, 0.12);
+  box-shadow: 0 12px 24px rgba(33, 2, 8, 0.12);
   transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
 
@@ -1166,10 +1140,6 @@
 
 .paletteSwatch[data-tone="dusty-rose"] {
   background: var(--dusty-rose);
-}
-
-.paletteSwatch[data-tone="powder"] {
-  background: var(--powder);
 }
 
 .paletteSwatch[data-tone="burgundy"] {
@@ -1206,10 +1176,7 @@
 }
 
 .paletteChip:hover .paletteSwatch {
-  border-color: rgba(33, 2, 8, 0.34);
-  box-shadow:
-    inset 0 0 0 5px rgba(255, 255, 255, 0.26),
-    0 18px 30px rgba(33, 2, 8, 0.18);
+  box-shadow: 0 18px 30px rgba(33, 2, 8, 0.18);
   transform: scale(1.04);
 }
 
@@ -1241,33 +1208,30 @@
 .galleryGrid {
   position: relative;
   z-index: 1;
-  display: grid;
-  gap: clamp(10px, 1.8vw, 18px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+  gap: clamp(8px, 1vw, 14px);
   margin-top: clamp(22px, 4vw, 40px);
 }
 
 .femaleGallery {
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  align-items: end;
-  min-height: clamp(360px, 42vw, 510px);
-  padding: clamp(18px, 3vw, 28px) clamp(8px, 2vw, 18px) 0;
-  border-top: 1px solid rgba(33, 2, 8, 0.12);
-  border-bottom: 1px solid rgba(33, 2, 8, 0.1);
-  background:
-    linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent),
-    radial-gradient(circle at 50% 100%, rgba(106, 31, 43, 0.13), transparent 52%);
+  min-height: auto;
+  padding: clamp(18px, 3vw, 28px) clamp(10px, 3vw, 38px) 0;
+  border: 0;
+  background: transparent;
 }
 
 .maleGallery {
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  align-items: end;
-  padding-top: clamp(8px, 2vw, 18px);
+  padding: clamp(8px, 2vw, 18px) clamp(10px, 3vw, 38px) 0;
 }
 
 .lookCard {
   position: relative;
   margin: 0;
-  min-width: 0;
+  flex: 0 1 clamp(58px, 6.2vw, 92px);
+  min-width: clamp(54px, 5.8vw, 86px);
   transform: translateY(var(--look-offset, 0));
   transition: transform 240ms ease;
 }
@@ -1276,6 +1240,7 @@
   position: relative;
   overflow: visible;
   aspect-ratio: 0.56;
+  height: clamp(180px, 34vw, 430px);
   background: transparent;
 }
 
@@ -1287,6 +1252,7 @@
 
 .maleGallery .lookImageWrap {
   aspect-ratio: 0.58;
+  height: clamp(170px, 28vw, 350px);
 }
 
 .lookImage {
@@ -1320,7 +1286,7 @@
   gap: clamp(24px, 3.6vw, 48px);
   overflow: hidden;
   padding: clamp(42px, 6vw, 76px) clamp(24px, 6vw, 74px);
-  border: 1px solid rgba(219, 183, 183, 0.12);
+  border: 0;
   border-radius: 0;
   background:
     linear-gradient(90deg, rgba(255, 241, 243, 0.055) 0 1px, transparent 1px 18vw),
@@ -1328,7 +1294,7 @@
     radial-gradient(circle at 92% 18%, rgba(106, 31, 43, 0.34), transparent 24%),
     linear-gradient(135deg, #26040b 0%, #140106 45%, #22030a 100%);
   color: var(--foreground);
-  box-shadow: 0 34px 90px rgba(0, 0, 0, 0.34);
+  box-shadow: none;
   isolation: isolate;
   opacity: 0;
   animation: rsvpCardReveal 900ms cubic-bezier(0.2, 0.82, 0.2, 1) forwards;
@@ -1351,8 +1317,7 @@
 }
 
 .formCard::before {
-  inset: 18px;
-  border: 1px solid rgba(255, 241, 243, 0.12);
+  display: none;
 }
 
 .formCard::after {
@@ -1651,6 +1616,16 @@
 .choice input:checked {
   border-color: var(--blush);
   background: radial-gradient(circle, var(--blush) 0 45%, transparent 46%);
+}
+
+.choice input[type="checkbox"] {
+  border-radius: 3px;
+}
+
+.choice input[type="checkbox"]:checked {
+  background:
+    linear-gradient(135deg, transparent 0 42%, var(--blush) 43% 57%, transparent 58%),
+    linear-gradient(45deg, transparent 0 44%, var(--blush) 45% 58%, transparent 59%);
 }
 
 .formFooter {
@@ -1987,33 +1962,43 @@
 }
 
 .detailsCard {
-  padding: clamp(32px, 5vw, 60px);
-  border-radius: 40px;
+  padding: clamp(38px, 6vw, 76px) clamp(18px, 7vw, 96px);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--foreground);
+  box-shadow: none;
 }
 
 .detailsCard .sectionTitle {
-  color: var(--background);
+  color: var(--white);
+  font-family: var(--font-decorative-stack);
+  font-size: clamp(4rem, 9vw, 8rem);
+  font-weight: 400;
 }
 
 .detailsList {
   display: grid;
-  gap: 22px;
-  margin-top: 34px;
+  gap: clamp(24px, 4vw, 42px);
+  width: min(100%, 920px);
+  margin: 44px auto 0;
 }
 
 .detailItem {
   display: grid;
-  grid-template-columns: 88px minmax(0, 1fr);
-  gap: 18px;
-  align-items: start;
+  grid-template-columns: clamp(72px, 10vw, 122px) minmax(0, 1fr);
+  gap: clamp(14px, 3vw, 32px);
+  align-items: center;
   transition: transform 220ms ease;
 }
 
 .detailNumber {
-  color: rgba(33, 2, 8, 0.32);
-  font-family: var(--font-accent-stack);
-  font-size: clamp(2.8rem, 6vw, 4.6rem);
+  color: rgba(255, 241, 243, 0.32);
+  font-family: var(--font-decorative-stack);
+  font-size: clamp(3.6rem, 9vw, 7.2rem);
   line-height: 0.85;
+  margin-left: clamp(-54px, -4vw, -18px);
+  text-align: center;
   transition: color 220ms ease;
 }
 
@@ -2025,10 +2010,10 @@
 .detailTextWrap p,
 .detailsAsideText {
   margin: 0;
-  color: rgba(33, 2, 8, 0.9);
-  font-family: var(--font-sans);
-  font-size: clamp(1rem, 2vw, 1.14rem);
-  line-height: 1.7;
+  color: rgba(255, 241, 243, 0.84);
+  font-family: var(--font-serif-stack);
+  font-size: clamp(1.25rem, 2.8vw, 2rem);
+  line-height: 1.28;
 }
 
 .detailItem:hover {
@@ -2036,12 +2021,27 @@
 }
 
 .detailItem:hover .detailNumber {
-  color: rgba(33, 2, 8, 0.52);
+  color: rgba(255, 241, 243, 0.52);
 }
 
 .detailExtraLine,
 .detailClosingLine {
   font-weight: 600;
+}
+
+.detailExtraLine {
+  font-size: 0.78em !important;
+  opacity: 0.78;
+}
+
+.detailClosingLine {
+  width: min(100%, 760px);
+  margin: clamp(42px, 7vw, 68px) auto 0 !important;
+  color: rgba(255, 241, 243, 0.9) !important;
+  font-family: var(--font-script-stack) !important;
+  font-size: clamp(2.4rem, 6vw, 5.2rem) !important;
+  line-height: 0.9 !important;
+  text-align: center;
 }
 
 .detailsAside {
@@ -2051,29 +2051,28 @@
 .countdownCard {
   position: relative;
   overflow: hidden;
-  min-height: clamp(700px, 86vw, 900px);
-  padding: clamp(34px, 6vw, 72px);
-  border: 1px solid rgba(219, 183, 183, 0.12);
+  display: grid;
+  align-content: start;
+  min-height: 100svh;
+  padding: clamp(40px, 7vw, 82px) clamp(18px, 6vw, 72px) clamp(34px, 6vw, 70px);
+  border: 0;
   border-radius: 0;
   background: #130106;
-  box-shadow: 0 34px 90px rgba(0, 0, 0, 0.34);
+  box-shadow: none;
   isolation: isolate;
 }
 
 .countdownCard::before {
-  content: "";
-  position: absolute;
-  inset: 18px;
-  z-index: 3;
-  pointer-events: none;
-  border: 1px solid rgba(255, 241, 243, 0.13);
+  display: none;
 }
 
 .countdownImageFrame {
-  position: absolute;
-  inset: clamp(24px, 4vw, 48px) clamp(24px, 5vw, 72px) clamp(24px, 4vw, 48px) auto;
+  position: relative;
+  inset: auto;
   z-index: 0;
-  width: min(58vw, 660px);
+  width: min(100%, 720px);
+  height: min(56svh, 560px);
+  margin: clamp(28px, 5vw, 54px) auto 0;
   overflow: hidden;
 }
 
@@ -2100,12 +2099,12 @@
   z-index: 2;
   display: grid;
   justify-items: center;
-  padding-top: clamp(8px, 2vw, 22px);
+  padding-top: 0;
   text-align: center;
 }
 
 .countdownIntro .sectionTitle {
-  font-size: clamp(4rem, 10vw, 8.8rem);
+  font-size: clamp(3.2rem, 8vw, 6.8rem);
   font-weight: 500;
   line-height: 0.78;
   letter-spacing: 0.02em;
@@ -2123,11 +2122,13 @@
 }
 
 .countdownFooter {
-  position: absolute;
-  left: clamp(28px, 6vw, 86px);
-  right: clamp(28px, 6vw, 86px);
-  bottom: clamp(34px, 7vw, 82px);
+  position: relative;
+  left: auto;
+  right: auto;
+  bottom: auto;
   z-index: 2;
+  width: min(100%, 820px);
+  margin: clamp(26px, 4vw, 46px) auto 0;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0;
@@ -2196,9 +2197,11 @@
   }
 
   .heroPhotoStage {
-    height: min(62svh, 580px);
+    right: 7.5vw;
+    left: 7.5vw;
+    height: min(72svh, 640px);
     width: auto;
-    max-width: min(62vw, 720px);
+    max-width: none;
   }
 
   .heroCopy {
@@ -2235,14 +2238,14 @@
   }
 
   .section {
-    width: min(calc(100% - 20px), 1160px);
+    width: 100%;
     padding-top: 68px;
   }
 
   .card,
   .detailsCard,
   .countdownCard {
-    border-radius: 28px;
+    border-radius: 0;
   }
 
   .hero {
@@ -2318,16 +2321,16 @@
   }
 
   .heroPhotoStage {
-    top: clamp(354px, 41dvh, 400px);
-    right: 20px;
+    top: clamp(332px, 39dvh, 388px);
+    right: 7.5vw;
     bottom: auto;
-    left: 20px;
+    left: 7.5vw;
     width: auto;
-    height: clamp(278px, 35dvh, 340px);
+    height: clamp(390px, 50dvh, 510px);
     max-height: none;
     aspect-ratio: auto;
-    border-color: rgba(255, 241, 243, 0.2);
-    box-shadow: 0 22px 56px rgba(0, 0, 0, 0.44);
+    border: 0;
+    box-shadow: none;
   }
 
   .heroVenue {
@@ -2348,13 +2351,6 @@
     height: 48px;
   }
 
-  .heroRoses {
-    top: 18px;
-    right: 4px;
-    width: 190px;
-    opacity: 0.36;
-  }
-
   .heroHeart {
     left: -80px;
     bottom: 188px;
@@ -2370,7 +2366,7 @@
   }
 
   .formCard::before {
-    inset: 10px;
+    display: none;
   }
 
   .formCard .sectionTitle {
@@ -2406,7 +2402,8 @@
   }
 
   .paletteGrid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: min(100%, 390px);
+    gap: 14px 8px;
   }
 
   .paletteSwatch {
@@ -2414,22 +2411,30 @@
   }
 
   .gallerySection {
-    padding-top: 14px;
+    padding-top: 0;
   }
 
   .galleryCard {
-    padding-right: 12px;
-    padding-left: 12px;
+    padding-right: 0;
+    padding-left: 0;
   }
 
   .femaleGallery {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
     min-height: auto;
-    padding: 14px 4px 22px;
+    padding: 14px 8px 22px;
   }
 
-  .maleGallery {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .lookCard {
+    flex-basis: clamp(58px, 18vw, 78px);
+    min-width: clamp(56px, 17vw, 74px);
+  }
+
+  .lookImageWrap {
+    height: clamp(170px, 56vw, 250px);
+  }
+
+  .maleGallery .lookImageWrap {
+    height: clamp(150px, 48vw, 220px);
   }
 
   .femaleGallery .lookCard:nth-child(1),
@@ -2439,68 +2444,72 @@
   }
 
   .invitationLetter {
-    width: min(100%, 300px);
-    border-radius: 24px;
+    width: 100%;
+    border-radius: 38px;
   }
 
   .invitationContent {
-    min-height: 388px;
-    padding: 16px 14px 18px;
+    min-height: 620px;
+    padding: 54px 16px 34px;
   }
 
   .invitationSeal {
-    top: -12px;
-    right: -10px;
-    width: 36px;
+    top: -20px;
+    right: -12px;
+    width: 62px;
   }
 
   .invitationHeader {
-    width: min(100%, 190px);
+    grid-template-columns: 1fr;
+    justify-items: start;
+    width: 100%;
+    gap: 8px;
   }
 
   .invitationEyebrow {
-    font-size: 1.72rem;
-    line-height: 0.92;
+    font-size: clamp(4.7rem, 18vw, 6.4rem);
+    line-height: 0.76;
   }
 
   .invitationScript {
-    max-width: 9ch;
-    font-size: 1.56rem;
-    line-height: 1.02;
+    justify-self: end;
+    max-width: none;
+    font-size: clamp(2.82rem, 10.4vw, 3.85rem);
+    line-height: 0.82;
   }
 
   .invitationText {
-    width: min(100%, 204px);
-    margin-top: 12px;
-    gap: 8px;
-    font-size: 0.65rem;
-    line-height: 1.22;
+    width: min(100%, 370px);
+    margin-top: 62px;
+    gap: 2px;
+    font-size: clamp(1.28rem, 5.9vw, 1.72rem);
+    line-height: 1.08;
   }
 
   .invitationMetaStack {
     grid-template-columns: 1fr;
-    width: min(100%, 204px);
-    gap: 10px;
-    margin-top: 16px;
+    width: min(100%, 370px);
+    gap: 34px;
+    margin-top: 48px;
     padding-right: 0;
   }
 
   .metaLabel {
-    font-size: 0.82rem;
+    font-size: 2.54rem;
   }
 
   .invitationDateValue {
-    font-size: 1.52rem;
+    font-size: 3.8rem;
   }
 
   .invitationVenueValue {
-    font-size: 0.62rem;
+    font-size: 2.05rem;
   }
 
   .invitationCocktail {
-    right: 6px;
-    bottom: 8px;
-    width: 74px;
+    right: -34px;
+    bottom: 6%;
+    width: 168px;
   }
 
   .timelineItem {
@@ -2515,9 +2524,9 @@
   }
 
   .timelineCard {
-    --timeline-time-column: 72px;
-    min-height: 560px;
-    padding: 38px 26px 42px;
+    --timeline-time-column: 88px;
+    min-height: auto;
+    padding: 38px 18px 42px;
   }
 
   .timelineCard::before {
@@ -2571,22 +2580,24 @@
   }
 
   .detailItem {
-    grid-template-columns: 1fr;
-    gap: 6px;
+    grid-template-columns: 64px minmax(0, 1fr);
+    gap: 10px;
   }
 
   .detailNumber {
-    font-size: 3rem;
+    margin-left: -34px;
+    font-size: 4.2rem;
   }
 
   .countdownCard {
-    min-height: 680px;
-    padding: 30px 20px;
+    min-height: 100svh;
+    padding: 34px 16px 30px;
   }
 
   .countdownImageFrame {
-    inset: 0;
-    width: 100%;
+    inset: auto;
+    width: min(100%, 430px);
+    height: min(52svh, 430px);
   }
 
   .countdownImage {
@@ -2595,9 +2606,10 @@
   }
 
   .countdownFooter {
-    left: 20px;
-    right: 20px;
-    bottom: 26px;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    width: 100%;
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -2697,7 +2709,6 @@
   .revealSection,
   .heroPosterImage,
   .heroTexture,
-  .heroRoses,
   .heroHeart,
   .heroPhotoStage,
   .heroPrelude,
@@ -2719,7 +2730,6 @@
   .invitationCocktail,
   .timelineHeartTop,
   .timelineHeartBottom,
-  .galleryRibbon,
   .paletteChip,
   .paletteSwatch,
   .lookCard,

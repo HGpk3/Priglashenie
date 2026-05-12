@@ -1,13 +1,12 @@
-import Image from "next/image";
 import styles from "./LandingPage.module.css";
 import { designTokens } from "@/data/design-tokens";
-import { weddingAssets, weddingContent } from "@/data/wedding-content";
+import { weddingContent } from "@/data/wedding-content";
+import Image from "next/image";
 
 export function OutfitGalleriesSection() {
   return (
-    <section className={`${styles.section} ${styles.gallerySection}`} id={designTokens.sectionIds.galleries}>
+    <section className={`${styles.section} ${styles.lightSection} ${styles.gallerySection}`} id={designTokens.sectionIds.galleries}>
       <div className={`${styles.card} ${styles.galleryCard}`}>
-        <Image src={weddingAssets.ribbon} alt="" className={styles.galleryRibbon} />
         <div className={styles.galleryTitle}>{weddingContent.dressCode.looksTitle}</div>
         <div className={styles.gallerySubheading}>{weddingContent.dressCode.femaleTitle}</div>
 

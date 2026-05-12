@@ -19,7 +19,7 @@ export function RsvpFormSection() {
     const payload = {
       name: String(formData.get("name") ?? ""),
       attendance: String(formData.get("attendance") ?? ""),
-      alcohol: String(formData.get("alcohol") ?? ""),
+      alcohol: formData.getAll("alcohol").map((value) => String(value)),
       meal: String(formData.get("meal") ?? ""),
       allergies: String(formData.get("allergies") ?? ""),
       transfer: String(formData.get("transfer") ?? ""),
@@ -64,7 +64,6 @@ export function RsvpFormSection() {
       <div className={`${styles.formCard} ${isSuccess ? styles.formCardSuccess : ""}`}>
         <div className={styles.formHero}>
           <div className={styles.sectionHeader}>
-            <div className={styles.kicker}>RSVP</div>
             <h2 className={styles.sectionTitle}>{weddingContent.rsvp.title}</h2>
             <div className={styles.formLead}>{weddingContent.rsvp.lead}</div>
           </div>
@@ -117,7 +116,7 @@ export function RsvpFormSection() {
             <div className={`${styles.choiceRow} ${styles.choiceGrid}`}>
               {weddingContent.rsvp.alcoholPreferences.map((option, index) => (
                 <label className={styles.choice} key={option}>
-                  <input type="radio" name="alcohol" value={option} defaultChecked={index === 0} />
+                  <input type="checkbox" name="alcohol" value={option} defaultChecked={index === 0} />
                   <span>{option}</span>
                 </label>
               ))}
