@@ -18,7 +18,7 @@ export function HeroSection() {
   const renderName = (name: string) => (
     <span className={styles.heroNameWord}>
       <span className={styles.heroNameInitial}>{name.slice(0, 1)}</span>
-      {name.slice(1)}
+      <span className={styles.heroNameRest}>{name.slice(1)}</span>
     </span>
   );
 

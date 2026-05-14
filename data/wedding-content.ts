@@ -18,15 +18,12 @@ import femaleLookSteelDress from "@/source/photo_5278719209032586639_y 1.png";
 import femaleLookOliveSuit from "@/source/photo_5292272429306681598_y 1.png";
 import femaleLookEmeraldSuit from "@/source/photo_5292272429306681603_y 1.png";
 import femaleLookBlackSuit from "@/source/photo_5292272429306681604_y 1.png";
-import femaleLookWineSuit from "@/source/photo_5292272429306681602_y 1.png";
 import maleLookBlackSuit from "@/source/photo_5276421358579554509_y 2.png";
-import maleLookOliveSuit from "@/source/photo_5276421358579554510_y 2.png";
 import maleLookChocolateSuit from "@/source/photo_5276421358579554511_y 2.png";
 import maleLookNavySuit from "@/source/photo_5292272429306681606_y 1.png";
 import maleLookClassicBlack from "@/source/photo_5292272429306681610_y 1.png";
 import maleLookTuxedo from "@/source/photo_5292272429306681607_y 1.png";
 import maleLookGraphiteSuit from "@/source/photo_5292272429306681608_y 1.png";
-import maleLookGreenSuit from "@/source/photo_5292272429306681609_y 1.png";
 
 export type OutfitLook = {
   image: StaticImageData;
@@ -131,18 +128,15 @@ export const weddingContent = {
       { image: femaleLookSteelDress, label: "Серо-голубое платье", tone: "steel-blue" },
       { image: femaleLookOliveSuit, label: "Оливковый костюм", tone: "olive" },
       { image: femaleLookEmeraldSuit, label: "Изумрудный костюм", tone: "emerald" },
-      { image: femaleLookBlackSuit, label: "Чёрный костюм", tone: "black" },
-      { image: femaleLookWineSuit, label: "Винный костюм", tone: "burgundy" }
+      { image: femaleLookBlackSuit, label: "Чёрный костюм", tone: "black" }
     ] as OutfitLook[],
     maleLooks: [
       { image: maleLookBlackSuit, label: "Чёрный костюм", tone: "black" },
-      { image: maleLookOliveSuit, label: "Оливковый костюм", tone: "olive" },
       { image: maleLookChocolateSuit, label: "Шоколадный костюм", tone: "chocolate" },
       { image: maleLookNavySuit, label: "Тёмно-синий костюм", tone: "navy" },
       { image: maleLookClassicBlack, label: "Классический чёрный костюм", tone: "black" },
       { image: maleLookTuxedo, label: "Смокинг", tone: "black" },
-      { image: maleLookGraphiteSuit, label: "Графитовый костюм", tone: "graphite" },
-      { image: maleLookGreenSuit, label: "Зелёный костюм", tone: "olive" }
+      { image: maleLookGraphiteSuit, label: "Графитовый костюм", tone: "graphite" }
     ] as OutfitLook[]
   },
   rsvp: {
@@ -178,7 +172,9 @@ export const weddingContent = {
     items: [
       "Мы очень ценим вашу заботу и внимание, поэтому в качестве подарка были бы рады получить деньги",
       "Мы просим вас не дарить цветы, но будем рады любой бутылке алкоголя для коллекции",
-      "В самом зале просим вас отказаться от курения, для этого у нас будет отдельное место"
+      "В самом зале просим вас отказаться от курения, для этого у нас будет отдельное место",
+      "Скорее всего будет очень теплая погода, будьте готовы к этому!",
+      "Акцентируем Ваше внимание на том, что в белом только невеста! (не считая белых рубашек)"
     ],
     extraLine: "Нам надо делать ремонт)))",
     closingLine: "Благодарим за понимание!"
