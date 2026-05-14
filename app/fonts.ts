@@ -46,21 +46,21 @@ export const cormorant = localFont({
   variable: "--font-serif"
 });
 
-export const greatVibes = localFont({
-  src: "../fonts/ofont.ru_Good Vibes Pro.ttf",
+export const goodVibesPro = localFont({
+  src: "../fonts/GoodVibesCyr.ttf",
   weight: "400",
   style: "normal",
   variable: "--font-script"
 });
 
-export const ballet = localFont({
+export const adineKirnberg = localFont({
   src: "../fonts/adinekirnberg.ttf",
   weight: "400",
   style: "normal",
   variable: "--font-decorative"
 });
 
-export const aboreto = localFont({
+export const cormorantDisplayAccent = localFont({
   src: "../fonts/CormorantGaramond-SemiBold.ttf",
   weight: "600",
   style: "normal",

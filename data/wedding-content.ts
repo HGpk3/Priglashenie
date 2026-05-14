@@ -1,4 +1,4 @@
-import type { StaticImageData } from "next/image";
+﻿import type { StaticImageData } from "next/image";
 import { designTokens } from "@/data/design-tokens";
 import glitterTexture from "@/design/extracted/obj-143_1280x853.jpg";
 import heroPortrait from "@/design/extracted/hero-couple-crop.jpg";
@@ -188,3 +188,4 @@ export const weddingContent = {
     description: ""
   }
 } as const;
+

@@ -8,6 +8,12 @@ import { useEffect, useState } from "react";
 
 export function HeroSection() {
   const [groom, bride] = [weddingContent.couple.groom, weddingContent.couple.bride];
+  const formatDisplayName = (name: string) => {
+    const lowerName = name.toLocaleLowerCase("ru-RU");
+
+    return lowerName.replace(/^./u, (letter) => letter.toLocaleUpperCase("ru-RU"));
+  };
+  const [groomDisplay, brideDisplay] = [formatDisplayName(groom), formatDisplayName(bride)];
   const [showPrelude, setShowPrelude] = useState(true);
   const renderName = (name: string) => (
     <span className={styles.heroNameWord}>
@@ -28,7 +34,9 @@ export function HeroSection() {
         {showPrelude ? (
           <div className={styles.heroPrelude} aria-hidden="true">
             <div className={styles.heroPreludeInk}>
-              <span className={styles.heroPreludeName}>Danil &amp; Helena</span>
+              <span className={styles.heroPreludeName}>
+                {groomDisplay} &amp; {brideDisplay}
+              </span>
               <span className={styles.heroPreludeDate}>{weddingContent.event.dateFull}</span>
             </div>
           </div>

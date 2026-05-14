@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, type FormEvent } from "react";
 import styles from "./LandingPage.module.css";
@@ -200,3 +200,4 @@ export function RsvpFormSection() {
     </section>
   );
 }
+
