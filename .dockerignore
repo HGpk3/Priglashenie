@@ -8,3 +8,6 @@ docs
 .env
 .env.*
 !.env.example
+design/*.pdf
+design/README.md
+design/cutouts

@@ -1,66 +1,124 @@
-# Wedding Invitation Website
+# Wedding Invitation
 
-Проект электронного свадебного приглашения на `Next.js + TypeScript` с анкетой RSVP и просмотром ответов прямо на сайте.
+Электронное свадебное приглашение на `Next.js + TypeScript` с RSVP-формой и закрытым просмотром ответов.
 
-## RSVP
+## Архитектура
 
-Форма отправляет ответы на `POST /api/rsvp`. Сервер валидирует обязательные поля, проверяет допустимые варианты ответов, ограничивает частые повторные отправки, отсекает простые спам-боты через скрытое поле и сохраняет ответы в локальный JSONL-файл.
+- `app/` - Next.js App Router, страницы и API routes.
+- `components/` - секции лендинга и интерактивные UI-блоки.
+- `data/` - контент, даты, настройки и дизайн-токены.
+- `public/` - публичная статика.
+- `fonts/` - локальные шрифты для `next/font`.
+- `infra/` - инфраструктурные файлы для продакшен-запуска.
+- `docs/` - проектные заметки и решения.
 
-Нужны переменные окружения:
+В продакшене проект запускается в двух контейнерах:
 
-```bash
-APP_PORT=3000
-RSVP_RESULTS_KEY=your_private_code
-RSVP_STORAGE_PATH=.data/rsvp-submissions.jsonl
-```
+- `app` - standalone Next.js-приложение.
+- `proxy` - Nginx reverse proxy. Пока домена нет, он принимает запросы по IP/localhost; когда домен появится, достаточно поменять `DOMAIN_NAME` в `.env`.
 
-`RSVP_RESULTS_KEY` - код доступа для просмотра ответов через маленькую кнопку `Ответы` в правом нижнем углу сайта.
+RSVP-ответы сохраняются в Docker volume `rsvp-data`, поэтому не пропадают после пересборки контейнера.
 
-`RSVP_STORAGE_PATH` можно оставить по умолчанию. На VPS или в Docker важно смонтировать/сохранить директорию `.data`, если контейнер будет пересоздаваться.
+## Переменные окружения
 
-## Локальный запуск
+Создайте `.env` из примера:
 
 ```bash
 cp .env.example .env
+```
+
+Основные настройки:
+
+```bash
+HTTP_PORT=80
+DOMAIN_NAME=_
+CLIENT_MAX_BODY_SIZE=1m
+RSVP_RESULTS_KEY=change_me
+```
+
+- `HTTP_PORT` - внешний порт Nginx.
+- `DOMAIN_NAME` - домен сайта. Пока домена нет, оставьте `_`.
+- `CLIENT_MAX_BODY_SIZE` - лимит размера запроса.
+- `RSVP_RESULTS_KEY` - приватный код для просмотра RSVP-ответов через кнопку `Ответы`.
+
+## Локальная разработка
+
+Если Node.js установлен локально:
+
+```bash
 npm install
 npm run dev
 ```
 
-## Docker и VPS
-
-Проект готов к запуску в контейнере через `Dockerfile` и `docker-compose.yml`.
-
-Быстрый старт:
+Если удобнее запускать сразу как на сервере:
 
 ```bash
-cp .env.example .env
 docker compose up -d --build
 ```
 
-После этого сайт будет доступен на порту из `APP_PORT`, по умолчанию это `3000`.
+После запуска сайт будет доступен на `http://localhost` или на порту из `HTTP_PORT`.
+
+## Деплой на VPS
+
+1. Скопируйте проект на сервер.
+2. Создайте `.env`:
+
+```bash
+cp .env.example .env
+```
+
+3. Поменяйте `RSVP_RESULTS_KEY` на свой приватный код.
+4. Пока домена нет, оставьте:
+
+```bash
+DOMAIN_NAME=_
+HTTP_PORT=80
+```
+
+5. Запустите контейнеры:
+
+```bash
+docker compose up -d --build
+```
 
 Полезные команды:
 
 ```bash
+docker compose ps
 docker compose logs -f
 docker compose restart
 docker compose down
 ```
 
-## Структура
+## Подключение домена позже
 
-- `app/` - приложение и API-роуты
-- `components/` - секции лендинга
-- `data/` - тексты, даты и контент приглашения
-- `design/` - выгрузки из макетов и визуальные референсы
-- `public/` - публичные статические файлы
+Когда домен появится:
 
-## Примечание по проверке
-
-Проект проверяется через Docker:
+1. Направьте A-запись домена на IP сервера.
+2. В `.env` замените:
 
 ```bash
-docker compose up -d --build
+DOMAIN_NAME=example.com
 ```
 
-Для просмотра RSVP-ответов обязательно заменить `RSVP_RESULTS_KEY` в `.env` на свой код.
+3. Перезапустите proxy:
+
+```bash
+docker compose up -d
+```
+
+Для HTTPS можно поставить внешний Traefik/Caddy или добавить Certbot/Nginx-конфиг поверх текущей схемы.
+
+## Проверка
+
+Health endpoint:
+
+```bash
+curl http://localhost/api/health
+```
+
+Ожидаемый ответ:
+
+```json
+{"ok":true,"service":"wedding-invitation"}
+```
