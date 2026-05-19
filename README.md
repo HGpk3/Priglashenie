@@ -37,7 +37,7 @@ RSVP_RESULTS_KEY=change_me
 ```
 
 - `HTTP_PORT` - внешний порт Nginx.
-- `DOMAIN_NAME` - домен сайта. Пока домена нет, оставьте `_`.
+- `DOMAIN_NAME` - домен сайта. Для этого проекта: `24wedding.ru www.24wedding.ru`.
 - `CLIENT_MAX_BODY_SIZE` - лимит размера запроса.
 - `RSVP_RESULTS_KEY` - приватный код для просмотра RSVP-ответов через кнопку `Ответы`.
 
@@ -68,10 +68,10 @@ cp .env.example .env
 ```
 
 3. Поменяйте `RSVP_RESULTS_KEY` на свой приватный код.
-4. Пока домена нет, оставьте:
+4. Укажите домен:
 
 ```bash
-DOMAIN_NAME=_
+DOMAIN_NAME=24wedding.ru www.24wedding.ru
 HTTP_PORT=80
 ```
 
@@ -94,11 +94,17 @@ docker compose down
 
 Когда домен появится:
 
-1. Направьте A-запись домена на IP сервера.
+1. Направьте A-записи домена на IP сервера:
+
+```text
+24wedding.ru -> IP_сервера
+www.24wedding.ru -> IP_сервера
+```
+
 2. В `.env` замените:
 
 ```bash
-DOMAIN_NAME=example.com
+DOMAIN_NAME=24wedding.ru www.24wedding.ru
 ```
 
 3. Перезапустите proxy:

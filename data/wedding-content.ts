@@ -1,5 +1,6 @@
 ﻿import type { StaticImageData } from "next/image";
 import { designTokens } from "@/data/design-tokens";
+import { rsvpOptions } from "@/data/rsvp-options";
 import glitterTexture from "@/design/extracted/obj-143_1280x853.jpg";
 import heroPortrait from "@/design/extracted/hero-couple-crop.jpg";
 import closingPhoto from "@/source/photo_5276421358579554336_y 2.png";
@@ -155,17 +156,10 @@ export const weddingContent = {
     allergyLabel: "Есть ли у вас аллергия на что-то?",
     transferLabel: "Требуется ли трансфер до ресторана?",
     buttonLabel: "Отправить",
-    attendanceOptions: ["Да", "Нет"],
-    alcoholPreferences: [
-      "Шампанское",
-      "Красное вино сладкое",
-      "Красное вино сухое",
-      "Белое вино сладкое",
-      "Белое вино сухое",
-      "Не буду пить"
-    ],
-    mealOptions: ["Рыба", "Мясо", "Без разницы"],
-    transferOptions: ["Да", "Нет"]
+    attendanceOptions: rsvpOptions.attendance,
+    alcoholPreferences: rsvpOptions.alcohol,
+    mealOptions: rsvpOptions.meal,
+    transferOptions: rsvpOptions.transfer
   },
   details: {
     title: "ДЕТАЛИ",

@@ -2,6 +2,7 @@ import { randomUUID } from "node:crypto";
 import { appendFile, mkdir, readFile } from "node:fs/promises";
 import path from "node:path";
 import { NextResponse } from "next/server";
+import { rsvpOptions } from "@/data/rsvp-options";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -37,17 +38,10 @@ const SUBMISSION_WINDOW_MS = 60_000;
 const SUBMISSION_LIMIT = 5;
 const DEFAULT_STORAGE_PATH = path.join(process.cwd(), ".data", "rsvp-submissions.jsonl");
 
-const attendanceOptions = new Set(["Да", "Нет"]);
-const alcoholOptions = new Set([
-  "Шампанское",
-  "Красное вино сладкое",
-  "Красное вино сухое",
-  "Белое вино сладкое",
-  "Белое вино сухое",
-  "Не буду пить"
-]);
-const mealOptions = new Set(["Рыба", "Мясо", "Без разницы"]);
-const transferOptions = new Set(["Да", "Нет"]);
+const attendanceOptions = new Set<string>(rsvpOptions.attendance);
+const alcoholOptions = new Set<string>(rsvpOptions.alcohol);
+const mealOptions = new Set<string>(rsvpOptions.meal);
+const transferOptions = new Set<string>(rsvpOptions.transfer);
 const submissionBuckets = new Map<string, number[]>();
 
 function normalizeValue(value: unknown) {
